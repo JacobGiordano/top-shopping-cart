@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import products from "../data/product-data.js";
 import MediaGallery from "./MediaGallery.jsx";
+import QuantityInput from "./QuantityInput.jsx";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -20,6 +21,7 @@ function ProductDetail() {
       <div>{product.description}</div>
       <MediaGallery media={product.image} />
       <div>{product.available}</div>
+      <QuantityInput />
       <ul>{tags}</ul>
     </div>
   );
