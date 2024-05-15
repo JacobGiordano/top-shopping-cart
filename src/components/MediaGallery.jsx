@@ -1,4 +1,4 @@
-function MediaGallery() {
-  return <div>MediaGallery</div>;
+function MediaGallery({ media }) {
+  return <div>{media}</div>;
 }
 export default MediaGallery;

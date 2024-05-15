@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import products from "../data/product-data.js";
+import MediaGallery from "./MediaGallery.jsx";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -17,7 +18,7 @@ function ProductDetail() {
         <div>{product.compare_at_price}</div>
       )}
       <div>{product.description}</div>
-      <div>{product.image}</div>
+      <MediaGallery media={product.image} />
       <div>{product.available}</div>
       <ul>{tags}</ul>
     </div>
