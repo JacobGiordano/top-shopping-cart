@@ -5,9 +5,7 @@ import QuantityInput from "./QuantityInput.jsx";
 
 function ProductDetail() {
   const { handle } = useParams();
-  const product = data.products.find(
-    (product) => product.handle.toString() === handle
-  );
+  const product = data.products.find((product) => product.handle === handle);
   console.log(product);
   const tags = product.tags.map((tag) => <li key={tag}>{tag}</li>);
 
