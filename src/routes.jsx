@@ -9,7 +9,7 @@ const routes = [
     element: <App />,
   },
   {
-    path: "collections/:title",
+    path: "collections/:tags",
     element: <ProductCollection />,
   },
   {
