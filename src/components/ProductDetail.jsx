@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
-import products from "../data/product-data.js";
+import data from "../data/products.json";
 import MediaGallery from "./MediaGallery.jsx";
 import QuantityInput from "./QuantityInput.jsx";
 
 function ProductDetail() {
-  const { id } = useParams();
-  const product = products.find((product) => product.id.toString() === id);
+  const { handle } = useParams();
+  const product = data.products.find(
+    (product) => product.handle.toString() === handle
+  );
   console.log(product);
   const tags = product.tags.map((tag) => <li key={tag}>{tag}</li>);
 

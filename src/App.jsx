@@ -1,12 +1,12 @@
 import "./App.css";
-import products from "./data/product-data";
+import data from "./data/products.json";
 
 function App() {
   return (
     <>
       <div>Hello World</div>
       <ul>
-        {products.map((product) => {
+        {data.products.map((product) => {
           return (
             <li key={product.id}>
               <div className='product-card'>
