@@ -1,9 +1,9 @@
 import { Box } from "@radix-ui/themes";
 
-function MediaGallery({ media }) {
+function MediaGallery({ product }) {
   return (
     <Box>
-      <img src={media}></img>
+      <img src={product.image} width='100%' alt={product.title}></img>
     </Box>
   );
 }
