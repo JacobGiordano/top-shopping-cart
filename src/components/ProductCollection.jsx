@@ -7,7 +7,6 @@ import {
   Inset,
   Flex,
   Grid,
-  Section,
   Container,
   Heading,
   Reset,
@@ -77,9 +76,9 @@ function ProductCollection() {
 
   console.log(matches);
   return (
-    <Section>
+    <Box>
       <Container style={{ maxWidth: 900, margin: "0 auto" }} m>
-        <Heading as='h1' size='8' mb='6' align='left'>
+        <Heading as='h1' size='7' mb='6' align='left'>
           {collectionTitle}
         </Heading>
       </Container>
@@ -107,7 +106,7 @@ function ProductCollection() {
           )}
         </Box>
       </Container>
-    </Section>
+    </Box>
   );
 }
 export default ProductCollection;
