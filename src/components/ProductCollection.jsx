@@ -49,11 +49,11 @@ function ProductCollection() {
                   }}
                 />
               </Inset>
-              <Text as='p' size='4'>
+              <Text as='p' size='5'>
                 {match.title}
               </Text>
               <Flex gap='2' align='baseline'>
-                <Text as='p' size='3'>
+                <Text as='p' size='3' weight='800'>
                   {match.price}&#164;
                 </Text>
                 {match.price < match.compare_at_price && (
