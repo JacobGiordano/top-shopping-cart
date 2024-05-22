@@ -22,6 +22,7 @@ const routes = [
   {
     path: "/cart",
     element: <Cart />,
+    errorElement: <NotFound />,
   },
 ];
 
