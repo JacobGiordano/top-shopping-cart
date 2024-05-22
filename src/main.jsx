@@ -1,16 +1,22 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Theme } from "@radix-ui/themes";
+import { Section, Theme } from "@radix-ui/themes";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import routes from "./routes";
 import "@radix-ui/themes/styles.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Theme appearance='dark'>
-      <RouterProvider router={router} />
+    <Theme>
+      <Header></Header>
+      <Section>
+        <RouterProvider router={router} />
+      </Section>
+      <Footer></Footer>
     </Theme>
   </React.StrictMode>
 );
