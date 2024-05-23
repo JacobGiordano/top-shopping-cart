@@ -78,7 +78,7 @@
       "compare_at_price": 200,
       "description": "Tired of getting roasted by fire-breathing dragons? Fear not! Our Ring of Fire Resistance will have you feeling as cool as a cucumber in a furnace. Just slip it on your finger, and watch as flames lick harmlessly at your skin.",
       "image": "/images/product-images/ring-of-fire-resistance.jpeg",
-      "tags": ["rings", "fire", "relics", "fire resistance", "resistances"],
+      "tags": ["rings", "fire", "relics", "fire resistance", "resistance"],
       "rarity": "uncommon",
       "duration": null,
       "available": 1,
@@ -265,7 +265,7 @@
         "fire",
         "potions",
         "fire resistance",
-        "resistances"
+        "resistance"
       ],
       "rarity": "uncommon",
       "duration": "60s",
@@ -406,7 +406,7 @@
       "compare_at_price": 300,
       "description": "Tired of being burned, frozen, electrocuted, or worse? Our Amulet of Resistances will have you shrugging off elemental attacks like they're nothing! Just wear it around your neck, and watch as flames, frost, and lightning bounce harmlessly off you.",
       "image": "/images/product-images/amulet-of-resistances.jpeg",
-      "tags": ["resistances", "amulets", "relics"],
+      "tags": ["resistance", "amulets", "relics"],
       "rarity": "rare",
       "duration": null,
       "available": 1,
