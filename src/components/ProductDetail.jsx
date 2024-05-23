@@ -1,8 +1,17 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import data from "../data/products.json";
 import MediaGallery from "./MediaGallery.jsx";
 import QuantityInput from "./QuantityInput.jsx";
-import { Box, Container, Grid, Text, Heading, Flex } from "@radix-ui/themes";
+import {
+  Box,
+  Container,
+  Grid,
+  Text,
+  Heading,
+  Flex,
+  Badge,
+  Button,
+} from "@radix-ui/themes";
 
 function ProductDetail() {
   const { handle } = useParams();
@@ -21,23 +30,25 @@ function ProductDetail() {
   };
 
   const tags = product.tags.map((tag) => (
-    <li key={tag}>{capitalizeEachWord(tag)}</li>
+    <Link to={`/collections/${tag}`} key={tag}>
+      <Badge variant='outline' highContrast>
+        {capitalizeEachWord(tag)}
+      </Badge>
+    </Link>
   ));
 
   return (
-    <Container>
-      <Grid gap='5' columns={{ initial: "1", md: "2" }}>
+    <Container style={{ maxWidth: 900, margin: "0 auto" }}>
+      <Flex gap='5' direction={{ initial: "column", sm: "row" }}>
         <Box className='left-column'>
           <MediaGallery product={product} />
         </Box>
-        <Flex direction='column' gapY='3' className='right-column'>
+        <Flex direction='column' gapY='3' className='right-column md:max-w-xs'>
           <Heading as='h1' size='7' mb='3' align='left' trim='both'>
             {capitalizeEachWord(product.title)}
           </Heading>
-          <Text>Type: {capitalizeEachWord(product.type)}</Text>
-          <Text>Rarity: {capitalizeEachWord(product.rarity)}</Text>
           <Flex gap='2' align='baseline'>
-            <Text as='p' size='3' weight='800'>
+            <Text as='p' size='3' weight='medium'>
               {product.price}&#164;
             </Text>
             {product.price < product.compare_at_price && (
@@ -45,6 +56,7 @@ function ProductDetail() {
                 <Text
                   as='p'
                   size='3'
+                  weight='medium'
                   style={{ textDecoration: "line-through" }}
                 >
                   {product.compare_at_price}&#164;
@@ -52,12 +64,21 @@ function ProductDetail() {
               </Flex>
             )}
           </Flex>
+          <Text>Type: {capitalizeEachWord(product.type)}</Text>
+          <Text>Rarity: {capitalizeEachWord(product.rarity)}</Text>
           <Text>{product.description}</Text>
           <Text>Available: {product.available}</Text>
           <QuantityInput />
-          <ul>{tags}</ul>
+          <Box mb='6'>
+            <Button variant='solid' highContrast>
+              Add to cart
+            </Button>
+          </Box>
+          <Flex gap='2' wrap='wrap'>
+            {tags}
+          </Flex>
         </Flex>
-      </Grid>
+      </Flex>
     </Container>
   );
 }
