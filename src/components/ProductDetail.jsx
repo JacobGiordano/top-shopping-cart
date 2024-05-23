@@ -26,41 +26,38 @@ function ProductDetail() {
 
   return (
     <Container>
-      <Box>
-        <Grid gap='5' columns={{ initial: "1", md: "2" }}>
-          <Box>
-            <MediaGallery product={product} />
-          </Box>
-          <Flex direction='column' gapY='2'>
-            <Heading as='h1' size='7' mb='3' align='left' trim='both'>
-              {capitalizeEachWord(product.title)}
-            </Heading>
-            <Text>Type: {capitalizeEachWord(product.type)}</Text>
-            <Text>Rarity: {capitalizeEachWord(product.rarity)}</Text>
-            <Flex gap='2' align='baseline'>
-              <Text as='p' size='3' weight='800'>
-                {product.price}&#164;
-              </Text>
-              {product.price < product.compare_at_price && (
-                <Flex align='end'>
-                  <Text
-                    as='p'
-                    size='3'
-                    style={{ textDecoration: "line-through" }}
-                  >
-                    {product.compare_at_price}&#164;
-                  </Text>
-                </Flex>
-              )}
-            </Flex>
-            <Text>{product.description}</Text>
-
-            <Text>Available: {product.available}</Text>
-            <QuantityInput />
-            <ul>{tags}</ul>
+      <Grid gap='5' columns={{ initial: "1", md: "2" }}>
+        <Box className='left-column'>
+          <MediaGallery product={product} />
+        </Box>
+        <Flex direction='column' gapY='3' className='right-column'>
+          <Heading as='h1' size='7' mb='3' align='left' trim='both'>
+            {capitalizeEachWord(product.title)}
+          </Heading>
+          <Text>Type: {capitalizeEachWord(product.type)}</Text>
+          <Text>Rarity: {capitalizeEachWord(product.rarity)}</Text>
+          <Flex gap='2' align='baseline'>
+            <Text as='p' size='3' weight='800'>
+              {product.price}&#164;
+            </Text>
+            {product.price < product.compare_at_price && (
+              <Flex align='end'>
+                <Text
+                  as='p'
+                  size='3'
+                  style={{ textDecoration: "line-through" }}
+                >
+                  {product.compare_at_price}&#164;
+                </Text>
+              </Flex>
+            )}
           </Flex>
-        </Grid>
-      </Box>
+          <Text>{product.description}</Text>
+          <Text>Available: {product.available}</Text>
+          <QuantityInput />
+          <ul>{tags}</ul>
+        </Flex>
+      </Grid>
     </Container>
   );
 }
