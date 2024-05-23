@@ -1,3 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* This method of using tailwind and radix-themes
+is from here: https://www.frontend.fyi/v/fixing-radix-themes-with-css-cascade-layers */
+@layer tw_base, radix_ui, tw_components_utils;
+@import "@radix-ui/themes/styles.css" layer(radix_ui);
+
+@layer tw_base {
+  @tailwind base;
+}
+
+@layer tw_components_utils {
+  @tailwind components;
+  @tailwind utilities;
+}
