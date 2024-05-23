@@ -12,6 +12,7 @@ import {
   Reset,
 } from "@radix-ui/themes";
 import NotFound from "./NotFound";
+import Price from "./Price";
 
 function ProductCollection() {
   const { tags } = useParams();
@@ -52,19 +53,21 @@ function ProductCollection() {
                 {match.title}
               </Text>
               <Flex gap='2' align='baseline'>
-                <Text as='p' size='3' weight='800'>
-                  {match.price}&#164;
-                </Text>
+                <Price>
+                  <Text as='p' size='3'>
+                    {match.price}
+                  </Text>
+                </Price>
                 {match.price < match.compare_at_price && (
-                  <Flex align='end'>
+                  <Price>
                     <Text
                       as='p'
                       size='3'
                       style={{ textDecoration: "line-through" }}
                     >
-                      {match.compare_at_price}&#164;
+                      {match.compare_at_price}
                     </Text>
-                  </Flex>
+                  </Price>
                 )}
               </Flex>
             </Card>
