@@ -1,5 +1,4 @@
-import { Container, Section } from "@radix-ui/themes";
-import data from "./data/products.json";
+import { Section } from "@radix-ui/themes";
 
 function App() {
   return (
