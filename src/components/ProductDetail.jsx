@@ -45,7 +45,7 @@ function ProductDetail() {
         <Box className='left-column'>
           <MediaGallery product={product} />
         </Box>
-        <Flex direction='column' gapY='3' className='right-column md:max-w-xs'>
+        <Flex direction='column' gapY='3' className='right-column md:max-w-sm'>
           <Heading as='h1' size='7' mb='3' align='left' trim='both'>
             {capitalizeEachWord(product.title)}
           </Heading>
