@@ -1,4 +1,6 @@
-import { Switch } from "@radix-ui/themes";
+import { Box, Flex, Switch } from "@radix-ui/themes";
+import Moon from "/src/assets/svg/moon.svg?react";
+import Sun from "/src/assets/svg/sun.svg?react";
 
 function Header() {
   const handleThemeToggleClick = () => {
@@ -14,9 +16,17 @@ function Header() {
   };
 
   return (
-    <header>
+    <header className='flex justify-between p-2'>
       Header
-      <Switch defaultChecked onClick={handleThemeToggleClick}></Switch>
+      <Flex gap='2' align='center'>
+        <Sun className='w-4' />
+        <Switch
+          defaultChecked
+          onClick={handleThemeToggleClick}
+          size='1'
+        ></Switch>
+        <Moon className='w-3' />
+      </Flex>
     </header>
   );
 }
