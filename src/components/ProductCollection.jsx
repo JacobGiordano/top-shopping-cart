@@ -10,6 +10,7 @@ import {
   Container,
   Heading,
   Reset,
+  Badge,
 } from "@radix-ui/themes";
 import NotFound from "./NotFound";
 import Price from "./Price";
@@ -59,15 +60,18 @@ function ProductCollection() {
                   </Text>
                 </Price>
                 {match.price < match.compare_at_price && (
-                  <Price>
-                    <Text
-                      as='p'
-                      size='3'
-                      style={{ textDecoration: "line-through" }}
-                    >
-                      {match.compare_at_price}
-                    </Text>
-                  </Price>
+                  <>
+                    <Price>
+                      <Text
+                        as='p'
+                        size='3'
+                        style={{ textDecoration: "line-through" }}
+                      >
+                        {match.compare_at_price}
+                      </Text>
+                    </Price>
+                    <Badge color='crimson'>On Sale!</Badge>
+                  </>
                 )}
               </Flex>
             </Card>

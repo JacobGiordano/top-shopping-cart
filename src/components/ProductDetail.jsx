@@ -68,9 +68,7 @@ function ProductDetail() {
                       {product.compare_at_price}
                     </Text>
                   </Price>
-                  <Badge color='crimson' highContrast>
-                    On Sale!
-                  </Badge>
+                  <Badge color='crimson'>On Sale!</Badge>
                 </>
               )}
             </Flex>
