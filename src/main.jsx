@@ -11,8 +11,11 @@ const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Theme appearance='dark' className='h-dvh'>
-      <Box px='4' className='theme-inner-wrapper bg-slate-950 h-dvh'>
+    <Theme appearance='dark'>
+      <Box
+        px='4'
+        className='theme-inner-wrapper bg-slate-950 overflow-auto h-dvh'
+      >
         <Header></Header>
         <Section>
           <RouterProvider router={router} />
