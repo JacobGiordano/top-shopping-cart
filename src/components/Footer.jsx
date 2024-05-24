@@ -1,4 +1,4 @@
 function Footer() {
-  return <div>Footer</div>;
+  return <footer className='fixed bottom-0'>Footer</footer>;
 }
 export default Footer;
