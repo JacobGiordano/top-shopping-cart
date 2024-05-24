@@ -13,6 +13,7 @@ import {
   Badge,
   Button,
 } from "@radix-ui/themes";
+import PDPInfoTitle from "./PDPInfoTitle.jsx";
 
 function ProductDetail() {
   const { handle } = useParams();
@@ -49,7 +50,7 @@ function ProductDetail() {
             {capitalizeEachWord(product.title)}
           </Heading>
           <Flex direction='column'>
-            <Text size='2'>Price:</Text>
+            <PDPInfoTitle text='Price: ' />
             <Flex gap='2' align='baseline'>
               <Price>
                 <Text as='p' size='3' weight='medium' mr='.5'>
@@ -74,19 +75,22 @@ function ProductDetail() {
             </Flex>
           </Flex>
           <Flex direction='column'>
-            <Text size='2'>Type:</Text>
+            <PDPInfoTitle text='Type: ' />
             <Box>{capitalizeEachWord(product.type)}</Box>
           </Flex>
           <Flex direction='column'>
-            <Text size='2'>Rarity:</Text>
+            <PDPInfoTitle text='Rarity: ' />
             <Box>{capitalizeEachWord(product.rarity)}</Box>
           </Flex>
           <Flex direction='column'>
-            <Text size='2'>Description:</Text>
+            <PDPInfoTitle text='Description: ' />
             <Text>{product.description}</Text>
           </Flex>
-          <Text>Available: {product.available}</Text>
-          <QuantityInput />
+          <Flex gap='2' align='baseline'>
+            <PDPInfoTitle text='Available: ' />
+            <Text>{product.available}</Text>
+          </Flex>
+          <QuantityInput available={product.available} />
           <Box mb='6'>
             <Button variant='solid' highContrast>
               Add to cart
