@@ -1,4 +1,4 @@
-import { Flex, Text, Box, IconButton } from "@radix-ui/themes";
+import { Flex, IconButton } from "@radix-ui/themes";
 import PDPInfoTitle from "./PDPInfoTitle";
 
 function QuantityInput({ available }) {
