@@ -81,7 +81,6 @@ function ProductCollection() {
     );
   });
 
-  console.log(matches);
   return (
     <Box>
       <Container style={{ maxWidth: 900, margin: "0 auto" }}>
