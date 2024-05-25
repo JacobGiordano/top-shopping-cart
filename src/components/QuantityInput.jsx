@@ -1,22 +1,57 @@
-import { Flex, Text, Box } from "@radix-ui/themes";
+import { Flex, Text, Box, IconButton } from "@radix-ui/themes";
 import PDPInfoTitle from "./PDPInfoTitle";
 
 function QuantityInput({ available }) {
+  const handleQtyClick = (e) => {
+    const action = e.target.dataset.action;
+    const qtyEl = document.querySelector("#quantity");
+    if (action === "increase") {
+      qtyEl.value !== qtyEl.max
+        ? (qtyEl.value = parseInt(qtyEl.value) + 1)
+        : null;
+    } else {
+      qtyEl.value !== qtyEl.min
+        ? (qtyEl.value = parseInt(qtyEl.value) - 1)
+        : null;
+    }
+    console.log(qtyEl.value);
+  };
+
   return (
-    <Flex gap='2' align='baseline'>
+    <Flex gap='2' direction='column' align='baseline'>
       <PDPInfoTitle text='Quantity:' />
-      <Box>
-        <fieldset>
+      <fieldset>
+        <Flex gap='1' align='center'>
+          <IconButton
+            variant='solid'
+            highContrast
+            data-action='decrease'
+            onClick={handleQtyClick}
+          >
+            -
+          </IconButton>
+          <label hidden={true} htmlFor='quantity'>
+            Quanity
+          </label>
           <input
             type='number'
-            name=''
-            id=''
+            name='quantity'
+            id='quantity'
             defaultValue={1}
             min={1}
             max={available}
+            className='border pt-1 pb-1 pl-2 pr-2'
           />
-        </fieldset>
-      </Box>
+          <IconButton
+            variant='solid'
+            highContrast
+            data-action='increase'
+            onClick={handleQtyClick}
+          >
+            +
+          </IconButton>
+        </Flex>
+      </fieldset>
     </Flex>
   );
 }
