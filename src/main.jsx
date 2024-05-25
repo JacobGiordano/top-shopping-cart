@@ -7,6 +7,7 @@ import ReactDOM from "react-dom/client";
 import routes from "./routes";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Cart from "./routes/Cart";
 const router = createBrowserRouter(routes);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -16,11 +17,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         px='4'
         className='theme-inner-wrapper bg-slate-950 overflow-auto h-dvh'
       >
-        <Header></Header>
+        <Header />
         <Section>
           <RouterProvider router={router} />
         </Section>
-        <Footer></Footer>
+        <Cart />
+        <Footer />
       </Box>
     </Theme>
   </React.StrictMode>
