@@ -17,7 +17,7 @@ function Header() {
 
   return (
     <header className='flex justify-between p-2'>
-      Header
+      Gilded Gryphon
       <Flex gap='2' align='center'>
         <Sun className='w-4' />
         <Switch
