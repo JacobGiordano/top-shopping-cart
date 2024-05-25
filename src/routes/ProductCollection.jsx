@@ -12,8 +12,8 @@ import {
   Reset,
   Badge,
 } from "@radix-ui/themes";
-import NotFound from "./NotFound";
-import Price from "./Price";
+import NotFound from "../components/NotFound";
+import Price from "../components/Price";
 
 function ProductCollection() {
   const { tags } = useParams();

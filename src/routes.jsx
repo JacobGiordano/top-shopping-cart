@@ -1,7 +1,7 @@
 import App from "./App";
-import ProductCollection from "./components/ProductCollection";
-import ProductDetail from "./components/ProductDetail";
-import Cart from "./components/Cart";
+import ProductCollection from "./routes/ProductCollection";
+import ProductDetail from "./routes/ProductDetail";
+import Cart from "./routes/Cart";
 import NotFound from "./components/NotFound";
 
 const routes = [

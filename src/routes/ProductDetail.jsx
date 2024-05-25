@@ -1,8 +1,8 @@
 import { Link, useParams } from "react-router-dom";
 import data from "../data/products.json";
-import MediaGallery from "./MediaGallery.jsx";
-import Price from "./Price.jsx";
-import QuantityInput from "./QuantityInput.jsx";
+import MediaGallery from "../components/MediaGallery.jsx";
+import Price from "../components/Price.jsx";
+import QuantityInput from "../components/QuantityInput.jsx";
 
 import {
   Box,
@@ -13,7 +13,7 @@ import {
   Badge,
   Button,
 } from "@radix-ui/themes";
-import PDPInfoTitle from "./PDPInfoTitle.jsx";
+import PDPInfoTitle from "../components/PDPInfoTitle.jsx";
 
 function ProductDetail() {
   const { handle } = useParams();
