@@ -18,7 +18,6 @@ import PDPInfoTitle from "./PDPInfoTitle.jsx";
 function ProductDetail() {
   const { handle } = useParams();
   const product = data.products.find((product) => product.handle === handle);
-  console.log(product);
 
   const capitalizeEachWord = (string) => {
     return string
@@ -91,8 +90,12 @@ function ProductDetail() {
             <Text>{product.available}</Text>
           </Flex>
           <QuantityInput available={product.available} />
-          <Box mb='6'>
-            <Button variant='solid' highContrast>
+          <Box mt='2' mb='6'>
+            <Button
+              variant='solid'
+              highContrast
+              className='hover:cursor-pointer'
+            >
               Add to cart
             </Button>
           </Box>
