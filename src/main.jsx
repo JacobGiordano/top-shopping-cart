@@ -1,14 +1,9 @@
 import "@radix-ui/themes/styles.css";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Box, Section, Theme } from "@radix-ui/themes";
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Cart from "./routes/Cart";
-import routes from "./routes";
-const router = createBrowserRouter(routes);
+import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -17,12 +12,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         px='4'
         className='theme-inner-wrapper bg-slate-950 overflow-auto h-dvh'
       >
-        <Header />
         <Section>
-          <RouterProvider router={router} />
+          <App />
         </Section>
-        <Cart />
-        <Footer />
       </Box>
     </Theme>
   </React.StrictMode>
