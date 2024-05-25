@@ -24,7 +24,8 @@ function Header() {
           defaultChecked
           onClick={handleThemeToggleClick}
           size='1'
-        ></Switch>
+          className='hover:cursor-pointer'
+        />
         <Moon className='w-3' />
       </Flex>
     </header>

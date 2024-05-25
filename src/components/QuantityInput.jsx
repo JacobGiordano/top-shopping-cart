@@ -25,6 +25,7 @@ function QuantityInput({ available }) {
             variant='solid'
             highContrast
             data-action='decrease'
+            className='hover:cursor-pointer'
             onClick={handleQtyClick}
           >
             -
@@ -45,6 +46,7 @@ function QuantityInput({ available }) {
             variant='solid'
             highContrast
             data-action='increase'
+            className='hover:cursor-pointer'
             onClick={handleQtyClick}
           >
             +
