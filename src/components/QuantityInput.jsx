@@ -14,7 +14,6 @@ function QuantityInput({ available }) {
         ? (qtyEl.value = parseInt(qtyEl.value) - 1)
         : null;
     }
-    console.log(qtyEl.value);
   };
 
   return (
