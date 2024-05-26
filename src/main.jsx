@@ -12,9 +12,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         px='4'
         className='theme-inner-wrapper bg-slate-950 overflow-auto h-dvh'
       >
-        <Section>
-          <App />
-        </Section>
+        <App />
       </Box>
     </Theme>
   </React.StrictMode>
