@@ -1,6 +1,7 @@
-import { Box, Flex, Switch } from "@radix-ui/themes";
+import { Flex, Switch } from "@radix-ui/themes";
 import Moon from "/src/assets/svg/moon.svg?react";
 import Sun from "/src/assets/svg/sun.svg?react";
+import { Link } from "react-router-dom";
 
 function Header() {
   const handleThemeToggleClick = () => {
@@ -16,9 +17,12 @@ function Header() {
   };
 
   return (
-    <header className='flex justify-between p-2'>
-      Gilded Gryphon
-      <Flex gap='2' align='center'>
+    <header className='flex justify-between flex-col p-2 gap-2'>
+      <Flex justify='between' align='center'>
+        <Link to='/'>Gilded Gryphon</Link>
+        <Link to='/cart'>Cart</Link>
+      </Flex>
+      <Flex gap='2' justify='end' align='center'>
         <Sun className='w-4' />
         <Switch
           defaultChecked
