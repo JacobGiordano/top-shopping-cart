@@ -1,6 +1,6 @@
 import "@radix-ui/themes/styles.css";
 import "./index.css";
-import { Box, Section, Theme } from "@radix-ui/themes";
+import { Box, Theme } from "@radix-ui/themes";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
