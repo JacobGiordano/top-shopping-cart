@@ -1,9 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useOutletContext, useParams } from "react-router-dom";
 import data from "../data/products.json";
 import MediaGallery from "../components/MediaGallery.jsx";
 import Price from "../components/Price.jsx";
 import QuantityInput from "../components/QuantityInput.jsx";
-
+import PDPInfoTitle from "../components/PDPInfoTitle.jsx";
 import {
   Box,
   Container,
@@ -13,11 +13,39 @@ import {
   Badge,
   Button,
 } from "@radix-ui/themes";
-import PDPInfoTitle from "../components/PDPInfoTitle.jsx";
 
 function ProductDetail() {
   const { handle } = useParams();
+  const context = useOutletContext();
   const product = data.products.find((product) => product.handle === handle);
+
+  const handleAddToCartClick = () => {
+    let lineItem = {
+      id: product.id,
+      title: product.title,
+      image: product.image,
+      price: product.price,
+      compare_at_price: product.compare_at_price,
+      tags: product.tags,
+      quantity: document.querySelector("#quantity").value,
+    };
+    let addToCart = true;
+    const updatedCart = context.cart.map((cartItem) => {
+      if (lineItem.id === cartItem.id) {
+        addToCart = false;
+        return {
+          ...cartItem,
+          quantity: parseInt(cartItem.quantity) + parseInt(lineItem.quantity),
+        };
+      } else {
+        return cartItem;
+      }
+    });
+
+    addToCart
+      ? context.setCart([...updatedCart, lineItem])
+      : context.setCart(updatedCart);
+  };
 
   const capitalizeEachWord = (string) => {
     return string
@@ -95,6 +123,7 @@ function ProductDetail() {
               variant='solid'
               highContrast
               className='hover:cursor-pointer'
+              onClick={handleAddToCartClick}
             >
               Add to cart
             </Button>
