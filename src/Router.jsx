@@ -17,6 +17,11 @@ const router = createBrowserRouter([
         index: true,
       },
       {
+        path: "/cart",
+        element: <Cart />,
+        errorElement: <NotFound />,
+      },
+      {
         path: "/collections/:tags",
         element: <ProductCollection />,
         errorElement: <NotFound />,
@@ -24,11 +29,6 @@ const router = createBrowserRouter([
       {
         path: "/products/:handle",
         element: <ProductDetail />,
-        errorElement: <NotFound />,
-      },
-      {
-        path: "/cart",
-        element: <Cart />,
         errorElement: <NotFound />,
       },
     ],
