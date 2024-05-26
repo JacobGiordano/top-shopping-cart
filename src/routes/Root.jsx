@@ -2,10 +2,15 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Section } from "@radix-ui/themes";
 import { Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Root() {
-  const [cart, setCart] = useState([]);
+  const storedData = JSON.parse(sessionStorage.getItem("cart"));
+  const [cart, setCart] = useState(storedData || []);
+  useEffect(() => {
+    sessionStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   console.log(cart);
   return (
     <>
