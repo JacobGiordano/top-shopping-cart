@@ -16,6 +16,13 @@ function QuantityInput({ available }) {
     }
   };
 
+  const validateQty = () => {
+    const qtyEl = document.querySelector("#quantity");
+    if (parseInt(qtyEl.value) > parseInt(qtyEl.max)) {
+      qtyEl.value = qtyEl.max;
+    }
+  };
+
   return (
     <Flex gap='2' direction='column' align='baseline'>
       <PDPInfoTitle text='Quantity:' />
@@ -40,7 +47,8 @@ function QuantityInput({ available }) {
             defaultValue={1}
             min={1}
             max={available}
-            className='border pt-1 pb-1 pl-2 pr-2'
+            className='border rounded-md pt-1 pb-1 pl-2 pr-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
+            onKeyUp={validateQty}
           />
           <IconButton
             variant='solid'
