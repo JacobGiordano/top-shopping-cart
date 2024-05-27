@@ -1,7 +1,7 @@
 import { Flex, IconButton } from "@radix-ui/themes";
 import PDPInfoTitle from "./PDPInfoTitle";
 
-function QuantityInput({ available }) {
+function QuantityInput({ available, quantity }) {
   const handleQtyClick = (e) => {
     const action = e.target.dataset.action;
     const qtyEl = document.querySelector("#quantity");
@@ -44,7 +44,7 @@ function QuantityInput({ available }) {
             type='number'
             name='quantity'
             id='quantity'
-            defaultValue={1}
+            defaultValue={quantity || 1}
             min={1}
             max={available}
             className='border rounded-md pt-1 pb-1 pl-2 pr-2 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
