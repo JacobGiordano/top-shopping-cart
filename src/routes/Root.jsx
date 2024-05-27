@@ -14,7 +14,7 @@ function Root() {
   console.log(cart);
   return (
     <>
-      <Header />
+      <Header cart={cart} />
       <Section>
         {/* Passing context using object structuring */}
         <Outlet context={{ cart, setCart }} />
