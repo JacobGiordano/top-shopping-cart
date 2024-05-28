@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
 import { Box, Container, Flex, Heading } from "@radix-ui/themes";
 import QuantityInput from "../components/QuantityInput";
 
@@ -14,8 +14,12 @@ function Cart() {
         {context.cart.map((lineItem) => (
           <li key={lineItem.id}>
             <Flex gap='2' justify='between' align='center'>
-              <Box>{lineItem.title}</Box>
-              <QuantityInput quantity={lineItem.quantity} />
+              <Link to={`/products/${lineItem.handle}`}>{lineItem.title}</Link>
+              <QuantityInput
+                product={lineItem}
+                quantity={lineItem.quantity}
+                updateCart={true}
+              />
             </Flex>
           </li>
         ))}

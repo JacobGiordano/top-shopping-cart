@@ -27,7 +27,11 @@ function ProductDetail() {
       price: product.price,
       compare_at_price: product.compare_at_price,
       tags: product.tags,
-      quantity: document.querySelector("#quantity").value,
+      available: product.available,
+      handle: product.handle,
+      quantity: parseInt(
+        document.querySelector(`[data-product-id='${product.id}']`).value
+      ),
     };
     let addToCart = true;
     const updatedCart = context.cart.map((cartItem) => {
@@ -117,7 +121,7 @@ function ProductDetail() {
             <PDPInfoTitle text='Available: ' />
             <Text>{product.available}</Text>
           </Flex>
-          <QuantityInput available={product.available} />
+          <QuantityInput product={product} updateCart={false} />
           <Box mt='2' mb='6'>
             <Button
               variant='solid'
