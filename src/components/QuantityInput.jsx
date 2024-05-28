@@ -5,6 +5,11 @@ import TrashCan from "/src/assets/svg/trash-can.svg?react";
 
 function QuantityInput({ product, quantity, updateCart }) {
   const context = useOutletContext();
+  const cartItem = context.cart.find((lineItem) => lineItem.id === product.id);
+  const available =
+    !updateCart && cartItem
+      ? product.available - cartItem.quantity
+      : product.available;
 
   const handleQtyClick = (e) => {
     const action = e.target.dataset.action;
@@ -23,9 +28,13 @@ function QuantityInput({ product, quantity, updateCart }) {
 
   const validateQty = () => {
     const qtyEl = document.querySelector(`[data-product-id='${product.id}'`);
+    let isValid = false;
     if (parseInt(qtyEl.value) > parseInt(qtyEl.max)) {
       qtyEl.value = qtyEl.max;
+    } else {
+      isValid = true;
     }
+    return isValid;
   };
 
   const handleRemoveItem = (e) => {
@@ -42,6 +51,7 @@ function QuantityInput({ product, quantity, updateCart }) {
   };
 
   const handleQtyUpdate = (e) => {
+    if (!validateQty()) return;
     if (updateCart === true) {
       const lineItemQtyInput = e.target
         .closest("fieldset")
@@ -53,6 +63,9 @@ function QuantityInput({ product, quantity, updateCart }) {
           : cartItem
       );
       context.setCart(updatedCart);
+    } else {
+      document.querySelector("[data-product-available]").textContent =
+        available;
     }
   };
 
@@ -67,6 +80,7 @@ function QuantityInput({ product, quantity, updateCart }) {
             data-action='decrease'
             className='hover:cursor-pointer'
             onClick={handleQtyClick}
+            disabled={!updateCart && available === 0 ? true : false}
           >
             -
           </IconButton>
@@ -81,7 +95,8 @@ function QuantityInput({ product, quantity, updateCart }) {
             id='quantity'
             defaultValue={quantity || 1}
             min={1}
-            max={product.available}
+            max={available}
+            disabled={available === 0 ? true : false}
             data-product-id={product.id}
             className='border rounded-md pt-1 pb-1 pl-2 pr-2 min-w-12 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
             onKeyUp={validateQty}
@@ -93,6 +108,7 @@ function QuantityInput({ product, quantity, updateCart }) {
             data-action='increase'
             className='hover:cursor-pointer'
             onClick={handleQtyClick}
+            disabled={!updateCart && available === 0 ? true : false}
           >
             +
           </IconButton>

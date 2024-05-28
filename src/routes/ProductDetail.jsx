@@ -18,6 +18,10 @@ function ProductDetail() {
   const { handle } = useParams();
   const context = useOutletContext();
   const product = data.products.find((product) => product.handle === handle);
+  const cartItem = context.cart.find((lineItem) => lineItem.id === product.id);
+  const available = cartItem
+    ? product.available - cartItem.quantity
+    : product.available;
 
   const handleAddToCartClick = () => {
     let lineItem = {
@@ -27,7 +31,7 @@ function ProductDetail() {
       price: product.price,
       compare_at_price: product.compare_at_price,
       tags: product.tags,
-      available: product.available,
+      available: available,
       handle: product.handle,
       quantity: parseInt(
         document.querySelector(`[data-product-id='${product.id}']`).value
@@ -49,6 +53,8 @@ function ProductDetail() {
     addToCart
       ? context.setCart([...updatedCart, lineItem])
       : context.setCart(updatedCart);
+
+    document.querySelector("[data-product-id]").value = 1;
   };
 
   const capitalizeEachWord = (string) => {
@@ -119,7 +125,7 @@ function ProductDetail() {
           </Flex>
           <Flex gap='2' align='baseline'>
             <PDPInfoTitle text='Available: ' />
-            <Text>{product.available}</Text>
+            <Text data-product-available>{available}</Text>
           </Flex>
           <QuantityInput product={product} updateCart={false} />
           <Box mt='2' mb='6'>
@@ -128,6 +134,7 @@ function ProductDetail() {
               highContrast
               className='hover:cursor-pointer'
               onClick={handleAddToCartClick}
+              data-add-to-cart
             >
               Add to cart
             </Button>
