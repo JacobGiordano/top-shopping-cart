@@ -1,5 +1,4 @@
-import { Link, useParams } from "react-router-dom";
-import data from "../data/products.json";
+import { Link, useOutletContext, useParams } from "react-router-dom";
 import {
   Text,
   Box,
@@ -16,6 +15,8 @@ import NotFound from "../components/NotFound";
 import Price from "../components/Price";
 
 function ProductCollection() {
+  const context = useOutletContext();
+  const data = context.data;
   const { tags } = useParams();
   const splitTags = tags.split("+");
   let collectionTitle = "";

@@ -1,5 +1,4 @@
 import { Link, useOutletContext, useParams } from "react-router-dom";
-import data from "../data/products.json";
 import MediaGallery from "../components/MediaGallery.jsx";
 import Price from "../components/Price.jsx";
 import QuantityInput from "../components/QuantityInput.jsx";
@@ -17,6 +16,7 @@ import {
 function ProductDetail() {
   const { handle } = useParams();
   const context = useOutletContext();
+  const data = context.data;
   const product = data.products.find((product) => product.handle === handle);
   const cartItem = context.cart.find((lineItem) => lineItem.id === product.id);
   const available = cartItem

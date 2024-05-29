@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { Section } from "@radix-ui/themes";
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
+import data from "../data/products.json";
 
 function Root() {
   const storedData = JSON.parse(sessionStorage.getItem("cart"));
@@ -17,7 +18,7 @@ function Root() {
       <Header cart={cart} />
       <Section>
         {/* Passing context using object structuring */}
-        <Outlet context={{ cart, setCart }} />
+        <Outlet context={{ cart, setCart, data }} />
       </Section>
       <Footer />
     </>
