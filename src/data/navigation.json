@@ -1,0 +1,41 @@
+{
+  "navigation": [
+    {
+      "category": "Consumables",
+      "subcategories": [
+        "All Consumables",
+        "Potions",
+        "Elixirs",
+        "Scrolls",
+        "Antidotes"
+      ]
+    },
+    {
+      "category": "Weapons",
+      "subcategories": ["All Weapons", "Swords", "Wands", "Rods", "Staff"]
+    },
+    {
+      "category": "Armor",
+      "subcategories": [
+        "All Armor",
+        "Armor Sets",
+        "Boots",
+        "Capes",
+        "Shields",
+        "Helms",
+        "Robes",
+        "Cloaks",
+        "Gauntlets",
+        "Belts"
+      ]
+    },
+    {
+      "category": "Relics",
+      "subcategories": ["All Relics", "Rings", "Amulets", "Necklaces"]
+    },
+    {
+      "category": "Utilities",
+      "subcategories": ["All Utilities"]
+    }
+  ]
+}
