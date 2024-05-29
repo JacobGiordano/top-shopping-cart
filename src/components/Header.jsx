@@ -3,6 +3,7 @@ import { Flex, Switch, Text } from "@radix-ui/themes";
 import Moon from "/src/assets/svg/moon.svg?react";
 import Sun from "/src/assets/svg/sun.svg?react";
 import SiteNav from "./SiteNav";
+import navData from "../data/navigation.json";
 
 function Header({ cart }) {
   const handleThemeToggleClick = () => {
@@ -27,7 +28,7 @@ function Header({ cart }) {
         </NavLink>
       </Flex>
       <Flex gap='2' justify='between' align='center'>
-        <SiteNav />
+        <SiteNav navData={navData} />
         <Flex gap='2' justify='between' align='center'>
           <Sun className='w-4' />
           <Switch
