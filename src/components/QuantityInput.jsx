@@ -1,7 +1,6 @@
 import { useOutletContext } from "react-router-dom";
 import { Flex, IconButton } from "@radix-ui/themes";
 import PDPInfoTitle from "./PDPInfoTitle";
-import TrashCan from "/src/assets/svg/trash-can.svg?react";
 
 function QuantityInput({ product, quantity, updateCart }) {
   const context = useOutletContext();
@@ -35,19 +34,6 @@ function QuantityInput({ product, quantity, updateCart }) {
       isValid = true;
     }
     return isValid;
-  };
-
-  const handleRemoveItem = (e) => {
-    if (updateCart === true) {
-      const lineItemQtyInput = e.target
-        .closest("fieldset")
-        .querySelector("[data-product-id]");
-      const lineItemId = lineItemQtyInput.dataset.productId;
-      const updatedCart = context.cart.filter(
-        (cartItem) => parseInt(lineItemId) !== cartItem.id
-      );
-      context.setCart(updatedCart);
-    }
   };
 
   const handleQtyUpdate = (e) => {
@@ -112,16 +98,6 @@ function QuantityInput({ product, quantity, updateCart }) {
           >
             +
           </IconButton>
-          {updateCart && (
-            <IconButton
-              variant='solid'
-              highContrast
-              className='hover:cursor-pointer'
-              onClick={handleRemoveItem}
-            >
-              <TrashCan className='p-1' />
-            </IconButton>
-          )}
         </Flex>
       </fieldset>
     </Flex>
