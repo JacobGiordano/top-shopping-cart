@@ -4,6 +4,7 @@ import Moon from "/src/assets/svg/moon.svg?react";
 import Sun from "/src/assets/svg/sun.svg?react";
 import SiteNav from "./SiteNav";
 import navData from "../data/navigation.json";
+import CartIcon from "/src/assets/svg/cart.svg?react";
 
 function Header({ cart }) {
   const handleThemeToggleClick = () => {
@@ -23,8 +24,10 @@ function Header({ cart }) {
       <Flex justify='between' align='center'>
         <NavLink to='/'>Gilded Gryphon</NavLink>
         <NavLink to='/cart'>
-          Cart
-          <Text> {cart.length}</Text>
+          <Flex gap='1' justify='center' align='center'>
+            <CartIcon width='21' />
+            <Text size='2'>{cart.length}</Text>
+          </Flex>
         </NavLink>
       </Flex>
       <Flex gap='2' justify='between' align='center'>

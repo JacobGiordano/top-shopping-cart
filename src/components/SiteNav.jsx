@@ -1,7 +1,11 @@
-import { Flex, Box, Popover, Text } from "@radix-ui/themes";
+import { Flex, Box, Popover, Text, Button } from "@radix-ui/themes";
 import { NavLink } from "react-router-dom";
 
 function SiteNav({ navData }) {
+  const toggleMobileNav = () => {
+    document.querySelector(".site-nav-wrapper").classList.toggle("open");
+  };
+
   const nav = navData.navigation.map((navObj) => {
     return (
       <li key={navObj.category}>
@@ -50,11 +54,20 @@ function SiteNav({ navData }) {
   });
 
   return (
-    <Box>
-      <nav>
-        <ul className='flex gap-4'>{nav}</ul>
-      </nav>
-    </Box>
+    <>
+      <Button
+        highContrast
+        className='md:hidden md:invisible hover:cursor-pointer'
+        onClick={toggleMobileNav}
+      >
+        &equiv;
+      </Button>
+      <div className='site-nav-wrapper absolute -translate-x-8 md:relative md:translate-x-0 group'>
+        <nav className='absolute -translate-x-full z-20 group-[.open]:translate-x-0 md:relative md:translate-x-0'>
+          <ul className='flex gap-4 flex-col md:flex-row'>{nav}</ul>
+        </nav>
+      </div>
+    </>
   );
 }
 export default SiteNav;
