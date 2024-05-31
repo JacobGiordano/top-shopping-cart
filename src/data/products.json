@@ -197,7 +197,7 @@
       "compare_at_price": 350,
       "description": "Tired of being stuck in one place, when you could be anywhere in the blink of an eye? Our Cape of the Mountebank will have you teleporting like a master illusionist! Just throw it around your shoulders, envision your destination, and disappear in a puff of smoke.",
       "image": "/images/product-images/cape-of-the-mountebank.jpeg",
-      "tags": ["mountebank", "cape", "armor", "teleportation"],
+      "tags": ["mountebank", "capes", "armor", "teleportation"],
       "rarity": "rare",
       "duration": null,
       "available": 1,
