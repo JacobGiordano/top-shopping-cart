@@ -8,15 +8,12 @@ import CartIcon from "/src/assets/svg/cart.svg?react";
 
 function Header({ cart }) {
   const handleThemeToggleClick = () => {
+    const body = document.querySelector("body");
     const themeEl = document.querySelector(".radix-themes");
     const innerWrapper = document.querySelector(".theme-inner-wrapper");
-    if (themeEl.classList.contains("dark")) {
-      themeEl.classList.remove("dark");
-      innerWrapper.classList.remove("bg-slate-950");
-    } else {
-      themeEl.classList.add("dark");
-      innerWrapper.classList.add("bg-slate-950");
-    }
+    body.classList.toggle("light");
+    themeEl.classList.toggle("dark");
+    innerWrapper.classList.toggle("bg-slate-950");
   };
 
   return (

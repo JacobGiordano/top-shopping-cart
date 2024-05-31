@@ -3,6 +3,11 @@ is from here: https://www.frontend.fyi/v/fixing-radix-themes-with-css-cascade-la
 @layer tw_base, radix_ui, tw_components_utils;
 @import "@radix-ui/themes/styles.css" layer(radix_ui);
 
+body.light [data-radix-popper-content-wrapper] .rt-PopoverContent {
+  background-color: white;
+  color: inherit;
+}
+
 @layer tw_base {
   @tailwind base;
 }
