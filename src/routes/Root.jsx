@@ -16,7 +16,7 @@ function Root() {
   return (
     <>
       <Header cart={cart} />
-      <Box className='py-5 md:py8'>
+      <Box className='pt-5 md:pt-8 pb-20'>
         {/* Passing context using object structuring */}
         <Outlet context={{ cart, setCart, data }} />
       </Box>
