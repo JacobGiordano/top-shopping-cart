@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom";
-import { Flex, Switch, Text } from "@radix-ui/themes";
+import { Box, Flex, Switch, Text } from "@radix-ui/themes";
 import Moon from "/src/assets/svg/moon.svg?react";
 import Sun from "/src/assets/svg/sun.svg?react";
 import SiteNav from "./SiteNav";
 import navData from "../data/navigation.json";
 import CartIcon from "/src/assets/svg/cart.svg?react";
+import Gryphon from "/src/assets/svg/gryphon.svg?react";
 
 function Header({ cart }) {
   const handleThemeToggleClick = () => {
@@ -22,7 +23,12 @@ function Header({ cart }) {
   return (
     <header className='flex justify-between flex-col p-2 gap-2 group'>
       <Flex justify='between' align='center'>
-        <NavLink to='/'>Gilded Gryphon</NavLink>
+        <NavLink to='/'>
+          <Flex justify='start' align='center' gap='2'>
+            <Gryphon className='w-6' />
+            Gilded Gryphon
+          </Flex>
+        </NavLink>
         <NavLink to='/cart'>
           <Flex gap='1' justify='center' align='center'>
             <CartIcon width='21' />
