@@ -3,9 +3,23 @@ is from here: https://www.frontend.fyi/v/fixing-radix-themes-with-css-cascade-la
 @layer tw_base, radix_ui, tw_components_utils;
 @import "@radix-ui/themes/styles.css" layer(radix_ui);
 
-body.light [data-radix-popper-content-wrapper] .rt-PopoverContent {
-  background-color: white;
-  color: inherit;
+body .site-nav {
+  @media screen and (max-width: 797px) {
+    border: 1px solid #2e3441;
+  }
+}
+
+body.light {
+  @media screen and (max-width: 797px) {
+    & .site-nav {
+      border: 1px solid #bdc0c3;
+      box-shadow: 0 0 1rem 1rem rgba(189, 192, 195, 0.318);
+    }
+  }
+  & [data-radix-popper-content-wrapper] .rt-PopoverContent {
+    background-color: white;
+    color: inherit;
+  }
 }
 
 @layer tw_base {

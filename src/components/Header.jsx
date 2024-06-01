@@ -10,14 +10,17 @@ function Header({ cart }) {
   const handleThemeToggleClick = () => {
     const body = document.querySelector("body");
     const themeEl = document.querySelector(".radix-themes");
-    const innerWrapper = document.querySelector(".theme-inner-wrapper");
+    const themeInnerWrapper = document.querySelector(".theme-inner-wrapper");
+    const nav = document.querySelector(".site-nav");
     body.classList.toggle("light");
     themeEl.classList.toggle("dark");
-    innerWrapper.classList.toggle("bg-slate-950");
+    themeInnerWrapper.classList.toggle("bg-slate-950");
+    nav.classList.toggle("group-[.open]:bg-zinc-900");
+    nav.classList.toggle("group-[.open]:bg-white");
   };
 
   return (
-    <header className='flex justify-between flex-col p-2 gap-2'>
+    <header className='flex justify-between flex-col p-2 gap-2 group'>
       <Flex justify='between' align='center'>
         <NavLink to='/'>Gilded Gryphon</NavLink>
         <NavLink to='/cart'>
