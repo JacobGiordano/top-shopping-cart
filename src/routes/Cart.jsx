@@ -96,7 +96,14 @@ function Cart() {
 
   return (
     <Container style={{ maxWidth: 900, margin: "0 auto" }}>
-      <Heading as='h1' size='7' mb='3' align='left' trim='both'>
+      <Heading
+        as='h1'
+        size='7'
+        mb='3'
+        align='left'
+        trim='both'
+        className='uncial-antiqua-regular uppercase'
+      >
         Cart
       </Heading>
       {context.cart.length > 0 ? (

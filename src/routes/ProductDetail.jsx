@@ -83,7 +83,14 @@ function ProductDetail() {
           <MediaGallery product={product} />
         </Box>
         <Flex direction='column' gapY='3' className='right-column md:max-w-sm'>
-          <Heading as='h1' size='7' mb='3' align='left' trim='both'>
+          <Heading
+            as='h1'
+            size='7'
+            mb='3'
+            align='left'
+            trim='both'
+            className='uncial-antiqua-regular uppercase'
+          >
             {capitalizeEachWord(product.title)}
           </Heading>
           <Flex direction='column'>

@@ -26,7 +26,9 @@ function Header({ cart }) {
         <NavLink to='/'>
           <Flex justify='start' align='center' gap='2'>
             <Gryphon className='w-6' />
-            <Text className='uncial-antiqua-regular pt-1'>GILDED GRYPHON</Text>
+            <Text className='uncial-antiqua-regular uppercase pt-1'>
+              Gilded Gryphon
+            </Text>
           </Flex>
         </NavLink>
         <NavLink to='/cart'>

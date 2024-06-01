@@ -85,7 +85,13 @@ function ProductCollection() {
   return (
     <Box>
       <Container style={{ maxWidth: 900, margin: "0 auto" }}>
-        <Heading as='h1' size='7' mb='6' align='left'>
+        <Heading
+          as='h1'
+          size='7'
+          mb='6'
+          align='left'
+          className='uncial-antiqua-regular uppercase'
+        >
           {collectionTitle}
         </Heading>
       </Container>
