@@ -21,7 +21,7 @@ function Header({ cart }) {
   };
 
   return (
-    <header className='flex justify-between flex-col p-2 gap-2 group'>
+    <header className='flex justify-between flex-col py-2 gap-2 group border-b'>
       <Flex justify='between' align='center'>
         <NavLink to='/'>
           <Flex justify='start' align='center' gap='2'>

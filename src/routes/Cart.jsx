@@ -44,12 +44,29 @@ function Cart() {
           </Link>
         </Table.RowHeaderCell>
         <Table.Cell>
-          <QuantityInput
-            product={lineItem}
-            quantity={lineItem.quantity}
-            updateCart={true}
-          />
+          <Flex
+            gap='3'
+            direction='row'
+            wrap='nowrap'
+            justify='start'
+            align='center'
+          >
+            <QuantityInput
+              product={lineItem}
+              quantity={lineItem.quantity}
+              updateCart={true}
+            />
+            <IconButton
+              variant='solid'
+              highContrast
+              className='hover:cursor-pointer'
+              onClick={handleRemoveItem}
+            >
+              <TrashCan className='p-1' data-product-id={lineItem.id} />
+            </IconButton>
+          </Flex>
         </Table.Cell>
+        <Table.Cell></Table.Cell>
         <Table.Cell>
           <Flex gap='2'>
             <Price>
@@ -78,18 +95,6 @@ function Cart() {
             </Price>
           </Flex>
         </Table.Cell>
-        <Table.Cell>
-          <Flex justify='end'>
-            <IconButton
-              variant='solid'
-              highContrast
-              className='hover:cursor-pointer'
-              onClick={handleRemoveItem}
-            >
-              <TrashCan className='p-1' data-product-id={lineItem.id} />
-            </IconButton>
-          </Flex>
-        </Table.Cell>
       </Table.Row>
     );
   });
@@ -107,21 +112,22 @@ function Cart() {
         Cart
       </Heading>
       {context.cart.length > 0 ? (
-        <>
+        <Box className='min-h-[500px] mt-6'>
           <Table.Root variant='surface'>
             <Table.Header>
               <Table.Row>
                 <Table.ColumnHeaderCell>Product</Table.ColumnHeaderCell>
                 <Table.ColumnHeaderCell>Quantity</Table.ColumnHeaderCell>
+                <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
                 <Table.ColumnHeaderCell>Price</Table.ColumnHeaderCell>
                 <Table.ColumnHeaderCell>Total</Table.ColumnHeaderCell>
-                <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
               </Table.Row>
             </Table.Header>
 
             <Table.Body>
               {lineItems}
               <Table.Row>
+                <Table.Cell></Table.Cell>
                 <Table.Cell></Table.Cell>
                 <Table.Cell></Table.Cell>
                 <Table.Cell justify='end' align='center'>
@@ -136,9 +142,9 @@ function Cart() {
                     </Text>
                   </Price>
                 </Table.Cell>
-                <Table.Cell></Table.Cell>
               </Table.Row>
               <Table.Row>
+                <Table.Cell></Table.Cell>
                 <Table.Cell></Table.Cell>
                 <Table.Cell></Table.Cell>
                 <Table.Cell justify='end' align='center'>
@@ -153,9 +159,9 @@ function Cart() {
                     </Text>
                   </Price>
                 </Table.Cell>
-                <Table.Cell></Table.Cell>
               </Table.Row>
               <Table.Row>
+                <Table.Cell></Table.Cell>
                 <Table.Cell></Table.Cell>
                 <Table.Cell></Table.Cell>
                 <Table.Cell justify='end' align='center'>
@@ -170,7 +176,6 @@ function Cart() {
                     </Text>
                   </Price>
                 </Table.Cell>
-                <Table.Cell></Table.Cell>
               </Table.Row>
             </Table.Body>
           </Table.Root>
@@ -179,13 +184,24 @@ function Cart() {
               Checkout
             </Button>
           </Flex>
-        </>
+        </Box>
       ) : (
-        <Section>
-          <Text as='p' size='6'>
-            Your cart is empty, dear traveler. Perhaps peruse more of our humble
-            offerings?
-          </Text>
+        <Section className='min-h-80 md:min-h-[500px]'>
+          <Flex
+            direction='column'
+            justify='center'
+            align='center'
+            className='min-h-80'
+            gap='5'
+          >
+            <Text as='p' size='6' className='max-w-[580px]'>
+              Your cart is empty, dear traveler. Please consider looking over
+              some of our humble offerings?
+            </Text>
+            <Button highContrast>
+              <Link to='/collections/all'>View All Products</Link>
+            </Button>
+          </Flex>
         </Section>
       )}
     </Container>
