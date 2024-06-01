@@ -89,7 +89,7 @@ function ProductDetail() {
             mb='3'
             align='left'
             trim='both'
-            className='uncial-antiqua-regular uppercase'
+            className='uncial-antiqua-regular uppercase pt-1'
           >
             {capitalizeEachWord(product.title)}
           </Heading>
