@@ -77,7 +77,7 @@ function ProductDetail() {
   ));
 
   return (
-    <Container style={{ maxWidth: 900, margin: "0 auto" }}>
+    <Container className='max-w-[900px] m-auto =pt-5 md:pt-8 pb-20'>
       <Flex gap='6' direction={{ initial: "column", sm: "row" }}>
         <Box className='left-column'>
           <MediaGallery product={product} />
