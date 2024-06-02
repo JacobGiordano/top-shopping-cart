@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link, useOutletContext, useParams } from "react-router-dom";
 import {
   Text,
@@ -21,6 +22,13 @@ function ProductCollection() {
   const splitTags = tags.split("+");
   let collectionTitle = "";
   let matches = [];
+
+  useEffect(() => {
+    setTimeout(() => {
+      document.querySelector("header").scrollIntoView();
+    }, 0);
+  }, []);
+
   if (tags == "all") {
     matches = data.products;
     collectionTitle = "All Products";
@@ -83,8 +91,8 @@ function ProductCollection() {
   });
 
   return (
-    <Box>
-      <Container style={{ maxWidth: 900, margin: "0 auto" }}>
+    <Box className='pt-5 md:pt-8 pb-20'>
+      <Container className='max-w-[900px] m-auto'>
         <Heading
           as='h1'
           size='7'
