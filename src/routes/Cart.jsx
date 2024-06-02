@@ -100,7 +100,7 @@ function Cart() {
   });
 
   return (
-    <Container style={{ maxWidth: 900, margin: "0 auto" }}>
+    <Container className='pt-5 md:pt-8 pb-20 max-w-[900px] m-auto'>
       <Heading
         as='h1'
         size='7'
@@ -195,8 +195,8 @@ function Cart() {
             gap='5'
           >
             <Text as='p' size='6' className='max-w-[580px]'>
-              Your cart is empty, dear traveler. Please consider looking over
-              some of our humble offerings?
+              Your cart is empty, Dear Traveler. Please consider looking over
+              some of our humble offerings.
             </Text>
             <Button highContrast>
               <Link to='/collections/all'>View All Products</Link>
