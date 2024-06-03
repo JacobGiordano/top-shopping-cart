@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import data from "../data/products.json";
+import testimonials from "../data/testimonials.json";
 
 function Root() {
   const storedData = JSON.parse(sessionStorage.getItem("cart"));
@@ -17,7 +18,7 @@ function Root() {
     <>
       <Header cart={cart} />
       {/* Passing context using object structuring */}
-      <Outlet context={{ cart, setCart, data }} />
+      <Outlet context={{ cart, setCart, data, testimonials }} />
       <Footer />
     </>
   );
