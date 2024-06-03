@@ -3,6 +3,9 @@ is from here: https://www.frontend.fyi/v/fixing-radix-themes-with-css-cascade-la
 @layer tw_base, radix_ui, tw_components_utils;
 @import "@radix-ui/themes/styles.css" layer(radix_ui);
 @import url("https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap");
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/navigation";
 
 .uncial-antiqua-regular {
   font-family: "Uncial Antiqua", system-ui;
@@ -27,6 +30,43 @@ body.light {
     background-color: white;
     color: inherit;
   }
+}
+
+.swiper {
+  width: 100%;
+  height: auto;
+  padding: 1rem 0 3.5rem;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  height: auto;
+  min-height: 200px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--gray-12);
+}
+
+.swiper-pagination-bullet,
+.swiper-pagination-bullet-active {
+  background: var(--gray-12);
 }
 
 @layer tw_base {

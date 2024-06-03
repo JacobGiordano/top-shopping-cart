@@ -14,7 +14,7 @@ function Home() {
           src='/images/store-images/homepage-banner.jpg'
           alt="An image depicting an alchemist's shop filled with magical items."
         />
-        <div className='absolute text-center'>
+        <div className='absolute text-center text-white'>
           <Text className='md:text-xl'>Welcome, Dear Traveler, to</Text>
           <h1 className='uncial-antiqua-regular uppercase py-2 md:py-5 text-3xl md:text-5xl'>
             Gilded Gryphon
