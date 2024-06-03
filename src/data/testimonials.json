@@ -1,62 +1,64 @@
-[
+{
+  "testimonials": [
     {
-        "product": "Potion of Healing",
-        "reviewer": "Leofric Starblade",
-        "rating": 5,
-        "testimonial": "This potion worked wonders during my last goblin encounter. Just one sip, and I was back on my feet, ready to continue the fight. Essential for any adventurer!"
+      "product": "Potion of Healing",
+      "reviewer": "Leofric Starblade",
+      "rating": 5,
+      "testimonial": "This potion worked wonders during my last goblin encounter. Just one sip, and I was back on my feet, ready to continue the fight. Essential for any adventurer!"
     },
     {
-        "product": "Elixir of Strength",
-        "reviewer": "Gwendolyn Nightshade",
-        "rating": 4,
-        "testimonial": "This elixir provided the strength boost I needed to defeat a towering ogre. Felt the power coursing through my veins immediately. Highly recommended for any warrior!"
+      "product": "Elixir of Strength",
+      "reviewer": "Gwendolyn Nightshade",
+      "rating": 4,
+      "testimonial": "This elixir provided the strength boost I needed to defeat a towering ogre. Felt the power coursing through my veins immediately. Highly recommended for any warrior!"
     },
     {
-        "product": "Scroll of Fireball",
-        "reviewer": "Thalindra Moonwhisper",
-        "rating": 5,
-        "testimonial": "This fireball scroll is fantastic! Released a massive burst of flames with just a few words. Perfect for any mage looking to add some serious firepower."
+      "product": "Scroll of Fireball",
+      "reviewer": "Thalindra Moonwhisper",
+      "rating": 5,
+      "testimonial": "This fireball scroll is fantastic! Released a massive burst of flames with just a few words. Perfect for any mage looking to add some serious firepower."
     },
     {
-        "product": "Iron Sword",
-        "reviewer": "Sir Cedric Ironfist",
-        "rating": 4,
-        "testimonial": "The Iron Sword is a reliable and durable weapon. It has been my trusted ally on numerous quests. Excellent craftsmanship for any knight."
+      "product": "Iron Sword",
+      "reviewer": "Sir Cedric Ironfist",
+      "rating": 4,
+      "testimonial": "The Iron Sword is a reliable and durable weapon. It has been my trusted ally on numerous quests. Excellent craftsmanship for any knight."
     },
     {
-        "product": "Potion of Invisibility",
-        "reviewer": "Elowen Swiftblade",
-        "rating": 5,
-        "testimonial": "The Potion of Invisibility was crucial for my stealth missions. Slipped past guards unnoticed and achieved my objectives effortlessly. Ideal for any rogue!"
+      "product": "Potion of Invisibility",
+      "reviewer": "Elowen Swiftblade",
+      "rating": 5,
+      "testimonial": "The Potion of Invisibility was crucial for my stealth missions. Slipped past guards unnoticed and achieved my objectives effortlessly. Ideal for any rogue!"
     },
     {
-        "product": "Ring of Fire Resistance",
-        "reviewer": "Balric Flameheart",
-        "rating": 5,
-        "testimonial": "This ring protected me during a fiery battle with a dragon. Felt the heat but remained unscathed. Essential for any dragon slayer!"
+      "product": "Ring of Fire Resistance",
+      "reviewer": "Balric Flameheart",
+      "rating": 5,
+      "testimonial": "This ring protected me during a fiery battle with a dragon. Felt the heat but remained unscathed. Essential for any dragon slayer!"
     },
     {
-        "product": "Magic Staff",
-        "reviewer": "Morgana Lightbringer",
-        "rating": 4,
-        "testimonial": "The Magic Staff has greatly enhanced my spellcasting abilities. Perfect for any mage aspiring to become more powerful."
+      "product": "Magic Staff",
+      "reviewer": "Morgana Lightbringer",
+      "rating": 4,
+      "testimonial": "The Magic Staff has greatly enhanced my spellcasting abilities. Perfect for any mage aspiring to become more powerful."
     },
     {
-        "product": "Boots of Levitation",
-        "reviewer": "Aric Windrider",
-        "rating": 4,
-        "testimonial": "These Boots of Levitation allowed me to navigate difficult terrain with ease. Floated above obstacles and reached new heights. A must-have for explorers!"
+      "product": "Boots of Levitation",
+      "reviewer": "Aric Windrider",
+      "rating": 4,
+      "testimonial": "These Boots of Levitation allowed me to navigate difficult terrain with ease. Floated above obstacles and reached new heights. A must-have for explorers!"
     },
     {
-        "product": "Potion of Flying",
-        "reviewer": "Caelum Stormborn",
-        "rating": 5,
-        "testimonial": "The Potion of Flying gave me the freedom to soar through the skies. An exhilarating experience that every adventurer should try!"
+      "product": "Potion of Flying",
+      "reviewer": "Caelum Stormborn",
+      "rating": 5,
+      "testimonial": "The Potion of Flying gave me the freedom to soar through the skies. An exhilarating experience that every adventurer should try!"
     },
     {
-        "product": "Robe of Eyes",
-        "reviewer": "Drystan Shadowwalker",
-        "rating": 5,
-        "testimonial": "The Robe of Eyes provides unmatched awareness. I can see in all directions, making ambushes impossible. Highly effective for any vigilant guardian."
+      "product": "Robe of Eyes",
+      "reviewer": "Drystan Shadowwalker",
+      "rating": 5,
+      "testimonial": "The Robe of Eyes provides unmatched awareness. I can see in all directions, making ambushes impossible. Highly effective for any vigilant guardian."
     }
-]
+  ]
+}

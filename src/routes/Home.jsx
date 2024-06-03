@@ -1,9 +1,12 @@
-import { Box, Button, Heading, Flex, Text } from "@radix-ui/themes";
+import { Box, Heading, Flex, Text } from "@radix-ui/themes";
 import { Link, useOutletContext } from "react-router-dom";
+import Testimonials from "../components/Testimonials";
 
 function Home() {
   const context = useOutletContext();
-  console.log(context.cart);
+  // console.log(context.cart);
+  console.log(context.testimonials);
+
   return (
     <Flex className='max-w-[1080px] m-auto p-0 flex-col'>
       <Flex className='relative' justify='center' align='center'>
@@ -73,6 +76,7 @@ function Home() {
       </Flex>
       <Flex justify='center' align='center' gap='2' direction='column'>
         <Heading>What others are saying</Heading>
+        <Testimonials tData={context.testimonials} />
       </Flex>
     </Flex>
   );
