@@ -69,6 +69,11 @@ body.light {
   background: var(--gray-12);
 }
 
+.swiper.white-buttons .swiper-button-prev,
+.swiper.white-buttons .swiper-button-next {
+  color: white;
+}
+
 @layer tw_base {
   @tailwind base;
 }

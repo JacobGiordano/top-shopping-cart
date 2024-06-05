@@ -1,0 +1,34 @@
+{
+  "categories": [
+    {
+      "name": "Consumables",
+      "image": "/images/store-images/consumables.jpg",
+      "url": "/collections/consumables"
+    },
+    {
+      "name": "Weapons",
+      "image": "/images/store-images/weapons.jpg",
+      "url": "/collections/weapons"
+    },
+    {
+      "name": "Armor",
+      "image": "/images/store-images/armor.jpg",
+      "url": "/collections/armor"
+    },
+    {
+      "name": "Relics",
+      "image": "/images/store-images/relics.jpg",
+      "url": "/collections/relics"
+    },
+    {
+      "name": "Utilities",
+      "image": "/images/store-images/utilities.jpg",
+      "url": "/collections/utilities"
+    },
+    {
+      "name": "Everything",
+      "image": "/images/store-images/utilities.jpg",
+      "url": "/collections/all"
+    }
+  ]
+}

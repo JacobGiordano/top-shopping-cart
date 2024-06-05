@@ -1,0 +1,88 @@
+{
+  "best_sellers": [
+    {
+      "id": 345098765432,
+      "title": "Potion of Healing",
+      "type": "consumable",
+      "price": 50,
+      "compare_at_price": 50,
+      "description": "Feeling down in the dumps after tangling with some pesky goblins? Fear not! This magical elixir, lovingly brewed by mystical apothecaries, will patch you right up and have you back in the fight in no time. Just a sip, and voila! Good as new!",
+      "image": "/images/product-images/potion-of-healing.jpeg",
+      "tags": ["potions", "healing", "consumables"],
+      "rarity": "very common",
+      "duration": null,
+      "available": 10,
+      "handle": "potion-of-healing"
+    },
+    {
+      "id": 345678901234,
+      "title": "Scroll of Teleportation",
+      "type": "consumable",
+      "price": 250,
+      "compare_at_price": 250,
+      "description": "Tired of long journeys? Our Scroll of Teleportation will whisk you away to any destination in an instant! Just recite the incantation and prepare for a magical journey like no other.",
+      "image": "/images/product-images/scroll-of-teleportation.jpeg",
+      "tags": ["scrolls", "consumables", "teleportation"],
+      "rarity": "common",
+      "duration": "30s",
+      "available": 12,
+      "handle": "scroll-of-teleportation"
+    },
+    {
+      "id": 123456789034,
+      "title": "Potion of Levitation",
+      "type": "consumable",
+      "price": 100,
+      "compare_at_price": 120,
+      "description": "Need to reach great heights? Our Potion of Levitation will have you floating like a feather! Just take a sip and feel the magic lift you off the ground.",
+      "image": "/images/product-images/potion-of-levitation.jpeg",
+      "tags": ["levitation", "consumables", "potions", "sale"],
+      "rarity": "uncommon",
+      "duration": "60s",
+      "available": 5,
+      "handle": "potion-of-levitation"
+    },
+    {
+      "id": 123456789012,
+      "title": "Iron Sword",
+      "type": "weapon",
+      "price": 200,
+      "compare_at_price": 200,
+      "description": "Looking for a trusty blade to cleave through the ranks of evil? Our Iron Sword is just the ticket! Crafted by skilled blacksmiths with the finest iron, this sword will be your loyal companion on all your adventures. Go forth and vanquish!",
+      "image": "/images/product-images/iron-sword.jpeg",
+      "tags": ["weapons", "swords", "iron"],
+      "rarity": "common",
+      "duration": null,
+      "available": 3,
+      "handle": "iron-sword"
+    },
+    {
+      "id": 123456789020,
+      "title": "Potion of Speed",
+      "type": "consumable",
+      "price": 180,
+      "compare_at_price": 200,
+      "description": "Feeling like you're stuck in slow motion? Our Potion of Speed will have you zipping around like a blur! Just gulp it down, and watch as the world slows to a crawl around you. Fasten your seatbelt, because you're about to go supersonic!",
+      "image": "/images/product-images/potion-of-speed.jpeg",
+      "tags": ["potions", "speed", "consumables", "sale"],
+      "rarity": "uncommon",
+      "duration": "60s",
+      "available": 5,
+      "handle": "potion-of-speed"
+    },
+    {
+      "id": 123456789052,
+      "title": "Portable Hole",
+      "type": "utility",
+      "price": 450,
+      "compare_at_price": 450,
+      "description": "This mysterious piece of cloth can create an extra-dimensional space when spread out, providing a hidden storage area. Perfect for stashing loot, hiding from enemies, or transporting large items with ease. Simply fold it up when you're done and carry it with you wherever you go. A must-have for any adventurer in need of a little extra space.",
+      "image": "/images/product-images/portable-hole.jpeg",
+      "tags": ["portable", "utilities", "holes"],
+      "rarity": "epic",
+      "duration": null,
+      "available": 7,
+      "handle": "portable-hole"
+    }
+  ]
+}

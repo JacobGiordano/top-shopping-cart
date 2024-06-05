@@ -53,7 +53,7 @@
       "tags": ["weapons", "swords", "iron"],
       "rarity": "common",
       "duration": null,
-      "available": 1,
+      "available": 3,
       "handle": "iron-sword"
     },
     {
@@ -240,9 +240,9 @@
       "description": "Tired of being caught out in the open with nowhere to hide? Our Eversmoking Bottle will have you shrouded in darkness like a shadowy assassin! Just open it up, and watch as a thick cloud of smoke billows out, concealing you from prying eyes.",
       "image": "/images/product-images/eversmoking-bottle.jpeg",
       "tags": ["smoke", "utilities", "eversmoking", "bottle"],
-      "rarity": "rare",
+      "rarity": "common",
       "duration": "60s",
-      "available": 1,
+      "available": 10,
       "handle": "eversmoking-bottle"
     },
     {
@@ -254,9 +254,9 @@
       "description": "Tired of long journeys? Our Scroll of Teleportation will whisk you away to any destination in an instant! Just recite the incantation and prepare for a magical journey like no other.",
       "image": "/images/product-images/scroll-of-teleportation.jpeg",
       "tags": ["scrolls", "consumables", "teleportation"],
-      "rarity": "rare",
+      "rarity": "common",
       "duration": "30s",
-      "available": 1,
+      "available": 12,
       "handle": "scroll-of-teleportation"
     },
     {
@@ -326,7 +326,7 @@
       "tags": ["steel", "shields", "armor", "sale"],
       "rarity": "common",
       "duration": null,
-      "available": 1,
+      "available": 5,
       "handle": "steel-shield"
     },
     {
@@ -802,7 +802,7 @@
       "tags": ["portable", "utilities", "holes"],
       "rarity": "epic",
       "duration": null,
-      "available": 1,
+      "available": 7,
       "handle": "portable-hole"
     },
     {

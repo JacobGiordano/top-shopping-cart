@@ -1,11 +1,9 @@
-import { Flex, Text } from "@radix-ui/themes";
-import Carousel from "./Carousel";
-// Import Swiper React components
+import { Flex, Heading, Text } from "@radix-ui/themes";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import required modules
-import { Pagination, Navigation } from "swiper/modules";
+import { Autoplay, Keyboard, Pagination, Navigation } from "swiper/modules";
+import tData from "../data/testimonials.json";
 
-function Testimonials({ tData }) {
+function Testimonials() {
   console.log(tData);
 
   const testimonialCards = tData.testimonials.map((data) => {
@@ -16,9 +14,9 @@ function Testimonials({ tData }) {
           align='center'
           gap='4'
           direction='column'
-          className='max-w-[700px]'
+          className='w-[80%] max-w-[700px]'
         >
-          <Text className='text-2xl'>&quot;{data.testimonial}&quot;</Text>
+          <Text className='text-xl'>&quot;{data.testimonial}&quot;</Text>
           <Text className='text-lg'>{data.product}</Text>
           <Text className='text-sm italic'>{data.reviewer}</Text>
         </Flex>
@@ -26,6 +24,38 @@ function Testimonials({ tData }) {
     );
   });
 
-  return <Carousel data={tData.testimonials}>{testimonialCards}</Carousel>;
+  return (
+    <Flex
+      justify='center'
+      align='center'
+      gap='2'
+      direction='column'
+      className='pt-12'
+    >
+      <Heading as='h2' className='uncial-antiqua-regular uppercase py-2'>
+        What others are saying
+      </Heading>
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={30}
+        loop={true}
+        autoplay={{
+          delay: 5500,
+          disableOnInteraction: false,
+        }}
+        keyboard={{
+          enabled: true,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Keyboard, Pagination, Navigation]}
+        className='swiper testimonials'
+      >
+        {testimonialCards}
+      </Swiper>
+    </Flex>
+  );
 }
 export default Testimonials;
