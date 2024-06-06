@@ -4,8 +4,6 @@ import { Autoplay, Keyboard, Pagination, Navigation } from "swiper/modules";
 import tData from "../data/testimonials.json";
 
 function Testimonials() {
-  console.log(tData);
-
   const testimonialCards = tData.testimonials.map((data) => {
     return (
       <SwiperSlide key={data.product}>
