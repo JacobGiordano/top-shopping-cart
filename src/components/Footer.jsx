@@ -9,7 +9,7 @@ function Footer() {
         wrap='wrap'
         direction={{ initial: "column", xs: "row" }}
         justify={{ initial: "start", xs: "between" }}
-        align={{ initial: "start", xs: "center" }}
+        align={{ initial: "center", xs: "center" }}
       >
         <Link to='https://www.theodinproject.com/lessons/node-path-react-new-shopping-cart'>
           View on The Odin Project

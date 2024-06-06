@@ -21,9 +21,7 @@ function Home() {
           </Text>
         </div>
       </Flex>
-
       <BestSellers />
-
       <Categories />
       <Testimonials />
     </Flex>

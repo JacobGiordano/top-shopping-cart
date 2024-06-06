@@ -30,7 +30,10 @@ function Testimonials() {
       direction='column'
       className='pt-12'
     >
-      <Heading as='h2' className='uncial-antiqua-regular uppercase py-2'>
+      <Heading
+        as='h2'
+        className='uncial-antiqua-regular uppercase py-2 text-center'
+      >
         What others are saying
       </Heading>
       <Swiper
