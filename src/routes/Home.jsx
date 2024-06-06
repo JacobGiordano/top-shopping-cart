@@ -2,6 +2,7 @@ import { Flex, Text } from "@radix-ui/themes";
 import Testimonials from "../components/Testimonials";
 import BestSellers from "../components/BestSellers";
 import Categories from "../components/Categories";
+import Guarantee from "../components/Guarantee";
 
 function Home() {
   return (
@@ -23,6 +24,7 @@ function Home() {
       </Flex>
       <BestSellers />
       <Categories />
+      <Guarantee />
       <Testimonials />
     </Flex>
   );
