@@ -1,14 +1,9 @@
-import { Box, Heading, Flex, Text } from "@radix-ui/themes";
-import { useOutletContext } from "react-router-dom";
+import { Flex, Text } from "@radix-ui/themes";
 import Testimonials from "../components/Testimonials";
 import BestSellers from "../components/BestSellers";
 import Categories from "../components/Categories";
 
 function Home() {
-  const context = useOutletContext();
-  // console.log(context.cart);
-  console.log(context.testimonials);
-
   return (
     <Flex className='max-w-[1080px] m-auto p-0 pb-12 flex-col'>
       <Flex className='relative' justify='center' align='center'>

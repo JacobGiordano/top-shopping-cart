@@ -5,12 +5,10 @@ import { Link } from "react-router-dom";
 import bestData from "../data/best-sellers.json";
 
 function BestSellers() {
-  console.log(bestData);
-
   const bestSellers = bestData.best_sellers.map((product) => {
     return (
       <SwiperSlide key={product.id}>
-        <Link to={`/products/${product.handle}`}>
+        <Link to={`/products/${product.handle}`} className='select-none'>
           <Flex className='flex flex-col justify-center items-center'>
             <img
               className='rounded-t-md'
@@ -51,8 +49,21 @@ function BestSellers() {
         </Flex>
       </Box>
       <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
+        slidesPerView={1}
+        breakpoints={{
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+        }}
         loop={true}
         keyboard={{
           enabled: true,

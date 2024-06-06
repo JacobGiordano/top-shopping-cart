@@ -1,18 +1,18 @@
 {
   "best_sellers": [
     {
-      "id": 345098765432,
-      "title": "Potion of Healing",
+      "id": 123456789014,
+      "title": "Potion of Strength",
       "type": "consumable",
-      "price": 50,
-      "compare_at_price": 50,
-      "description": "Feeling down in the dumps after tangling with some pesky goblins? Fear not! This magical elixir, lovingly brewed by mystical apothecaries, will patch you right up and have you back in the fight in no time. Just a sip, and voila! Good as new!",
-      "image": "/images/product-images/potion-of-healing.jpeg",
-      "tags": ["potions", "healing", "consumables"],
-      "rarity": "very common",
-      "duration": null,
-      "available": 10,
-      "handle": "potion-of-healing"
+      "price": 90,
+      "compare_at_price": 100,
+      "description": "Need a little extra oomph to take down that hulking ogre blocking your path? Look no further! Our Potion of Strength will have you flexing those muscles and swinging your sword like a true hero. Drink up, adventurer!",
+      "image": "/images/product-images/potion-of-strength.jpeg",
+      "tags": ["potions", "strength", "consumables", "sale"],
+      "rarity": "common",
+      "duration": "60s",
+      "available": 8,
+      "handle": "potion-of-strength"
     },
     {
       "id": 345678901234,
@@ -29,18 +29,18 @@
       "handle": "scroll-of-teleportation"
     },
     {
-      "id": 123456789034,
-      "title": "Potion of Levitation",
+      "id": 345098765432,
+      "title": "Potion of Healing",
       "type": "consumable",
-      "price": 100,
-      "compare_at_price": 120,
-      "description": "Need to reach great heights? Our Potion of Levitation will have you floating like a feather! Just take a sip and feel the magic lift you off the ground.",
-      "image": "/images/product-images/potion-of-levitation.jpeg",
-      "tags": ["levitation", "consumables", "potions", "sale"],
-      "rarity": "uncommon",
-      "duration": "60s",
-      "available": 5,
-      "handle": "potion-of-levitation"
+      "price": 50,
+      "compare_at_price": 50,
+      "description": "Feeling down in the dumps after tangling with some pesky goblins? Fear not! This magical elixir, lovingly brewed by mystical apothecaries, will patch you right up and have you back in the fight in no time. Just a sip, and voila! Good as new!",
+      "image": "/images/product-images/potion-of-healing.jpeg",
+      "tags": ["potions", "healing", "consumables"],
+      "rarity": "very common",
+      "duration": null,
+      "available": 10,
+      "handle": "potion-of-healing"
     },
     {
       "id": 123456789012,
