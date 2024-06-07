@@ -41,7 +41,7 @@ function BestSellers() {
           <Heading
             as='h2'
             weight='bold'
-            size='7'
+            size='8'
             className='uncial-antiqua-regular uppercase text-center'
           >
             Take one of these

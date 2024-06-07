@@ -21,7 +21,7 @@ function Categories() {
   return (
     <Flex
       justify='center'
-      align='start'
+      align='center'
       gap={{ initial: "2", md: "4" }}
       direction={{ initial: "column", md: "row" }}
       className='pt-12'
@@ -37,14 +37,15 @@ function Categories() {
           <Heading
             as='h2'
             weight='bold'
-            size='7'
+            size='8'
             className='uncial-antiqua-regular uppercase py-2 text-center'
           >
             We&apos;ve got your back!
           </Heading>
           <Text>
-            Every adventurer is unique and every epic quest requires your best
-            we help you get back out there with the right gear.
+            Every adventurer is unique and every epic quest requires your best.
+            Here at Gilded Gryphon we help you get back out there with the right
+            gear, at affordable prices.
           </Text>
           <Text>
             That&apos; why we offer the wides selection of goods to make each
@@ -55,7 +56,7 @@ function Categories() {
         </Flex>
       </Box>
       <Grid
-        columns={{ initial: "1", xs: "2" }}
+        columns={{ initial: "1", xs: "2", sm: "3", md: "2" }}
         gap='3'
         width={{ initial: "auto", md: "50vw" }}
         flow='row'

@@ -41,7 +41,7 @@ function Testimonials() {
         spaceBetween={30}
         loop={true}
         autoplay={{
-          delay: 5500,
+          delay: 6000,
           disableOnInteraction: false,
         }}
         keyboard={{

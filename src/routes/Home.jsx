@@ -1,4 +1,4 @@
-import { Flex, Text } from "@radix-ui/themes";
+import { Flex, Heading, Text } from "@radix-ui/themes";
 import Testimonials from "../components/Testimonials";
 import BestSellers from "../components/BestSellers";
 import Categories from "../components/Categories";
@@ -14,9 +14,12 @@ function Home() {
         />
         <div className='absolute text-center text-white'>
           <Text className='md:text-xl'>Welcome, Dear Traveler, to</Text>
-          <h1 className='uncial-antiqua-regular uppercase py-2 md:py-5 text-3xl md:text-5xl'>
+          <Heading
+            className='uncial-antiqua-regular uppercase py-2 md:py-5'
+            size={{ initial: "8", sm: "9" }}
+          >
             Gilded Gryphon
-          </h1>
+          </Heading>
           <Text>
             What adventures await <span className='italic'>you</span>?
           </Text>
