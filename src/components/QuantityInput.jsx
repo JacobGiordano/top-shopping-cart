@@ -2,9 +2,10 @@ import { useOutletContext } from "react-router-dom";
 import { Flex, IconButton } from "@radix-ui/themes";
 import PDPInfoTitle from "./PDPInfoTitle";
 
-function QuantityInput({ product, quantity, updateCart }) {
+function QuantityInput({ product, quantity, updateCart, cart }) {
   const context = useOutletContext();
-  const cartItem = context.cart.find((lineItem) => lineItem.id === product.id);
+  const cartData = cart || context.cart;
+  const cartItem = cartData.find((lineItem) => lineItem.id === product.id);
   const available =
     !updateCart && cartItem
       ? product.available - cartItem.quantity
@@ -43,7 +44,7 @@ function QuantityInput({ product, quantity, updateCart }) {
         .closest("fieldset")
         .querySelector("[data-product-id]");
       const lineItemId = lineItemQtyInput.dataset.productId;
-      const updatedCart = context.cart.map((cartItem) =>
+      const updatedCart = cartData.map((cartItem) =>
         parseInt(lineItemId) === cartItem.id
           ? { ...cartItem, quantity: parseInt(lineItemQtyInput.value) }
           : cartItem
