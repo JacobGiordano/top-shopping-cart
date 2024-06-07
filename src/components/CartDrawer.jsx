@@ -16,7 +16,6 @@ import Price from "../components/Price";
 import TrashCan from "/src/assets/svg/trash-can.svg?react";
 
 function CartDrawer({ cart, setCart, draweIsOpen }) {
-  console.log(cart, draweIsOpen);
   let lineItemTotal = 0;
 
   const handleRemoveItem = (e) => {
@@ -71,6 +70,7 @@ function CartDrawer({ cart, setCart, draweIsOpen }) {
                 >
                   <QuantityInput
                     cart={cart}
+                    setCart={setCart}
                     product={lineItem}
                     quantity={lineItem.quantity}
                     updateCart={true}
@@ -104,16 +104,21 @@ function CartDrawer({ cart, setCart, draweIsOpen }) {
 
   return (
     <Container className='pt-5 md:pt-8 p-2 max-w-[900px] m-auto w-full sm:max-w-[400px] md:w-[50%]'>
-      <Heading
-        as='h1'
-        size='7'
-        mb='3'
-        align='left'
-        trim='both'
-        className='uncial-antiqua-regular uppercase'
-      >
-        Cart
-      </Heading>
+      <Flex justify='between'>
+        <Heading
+          as='h1'
+          size='5'
+          mb='3'
+          align='left'
+          trim='both'
+          className='uncial-antiqua-regular uppercase'
+        >
+          Cart
+        </Heading>
+        <Button highContrast variant='outline' className='hover:cursor-pointer'>
+          &times;
+        </Button>
+      </Flex>
       {cart.length > 0 ? (
         <Box className='min-h-[500px]'>
           <Table.Root variant='ghost'>
