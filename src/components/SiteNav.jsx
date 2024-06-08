@@ -63,7 +63,7 @@ function SiteNav({ navData }) {
         &equiv;
       </Button>
       <div className='site-nav-wrapper absolute z-10 bg-inherit -translate-x-8 md:relative md:translate-x-0 group'>
-        <nav className='site-nav absolute -translate-x-full group-[.open]:translate-x-8 group-[.open]:translate-y-8 group-[.open]:p-4 group-[.open]:bg-zinc-900 rounded-lg      md:relative md:group-[.open]:translate-x-0 md:translate-x-0 md:group-[.open]:translate-y-0 md:translate-y-0 md:group-[.open]:p-0 md:p-0 md:group-[.open]:bg-transparent md:bg-transparent'>
+        <nav className='site-nav absolute -translate-x-full group-[.open]:translate-x-8 group-[.open]:translate-y-8 group-[.open]:p-4 rounded-lg  md:relative md:group-[.open]:translate-x-0 md:translate-x-0 md:group-[.open]:translate-y-0 md:translate-y-0 md:group-[.open]:p-0 md:p-0 md:group-[.open]:bg-transparent md:bg-transparent'>
           <ul className='flex gap-4 flex-col md:flex-row'>{nav}</ul>
         </nav>
       </div>

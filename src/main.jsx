@@ -8,10 +8,7 @@ import App from "./App";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Theme appearance='dark'>
-      <Box
-        px='4'
-        className='theme-inner-wrapper bg-slate-950 overflow-auto h-dvh'
-      >
+      <Box px='4' className='theme-inner-wrapper overflow-auto h-dvh'>
         <App />
       </Box>
     </Theme>
