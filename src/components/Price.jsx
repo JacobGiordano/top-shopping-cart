@@ -6,7 +6,6 @@ function Price({ children }) {
   return (
     <Flex gap='2'>
       {children}
-      {/* <Gem className='w-4 -ml-1.5'></Gem> */}
       <Coins className='w-4 -ml-1.5'></Coins>
     </Flex>
   );

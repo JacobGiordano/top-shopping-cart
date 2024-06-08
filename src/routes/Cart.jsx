@@ -32,60 +32,74 @@ function Cart() {
     return (
       <Table.Row key={lineItem.id}>
         <Table.RowHeaderCell>
-          <Link to={`/products/${lineItem.handle}`}>
+          <Flex align='start' direction='column' gap='3'>
             <Flex gap='3' justify='start'>
-              <img
-                src={lineItem.image}
-                alt={lineItem.title}
-                className='max-w-20'
-              />
-              <Text size='3'>{lineItem.title}</Text>
+              <Link to={`/products/${lineItem.handle}`}>
+                <img
+                  src={lineItem.image}
+                  alt={lineItem.title}
+                  className='max-w-16 sm:max-w-[6rem]'
+                />
+              </Link>
+              <Flex direction='column' gap='2'>
+                <Link to={`/products/${lineItem.handle}`}>
+                  <Text size='3'>{lineItem.title}</Text>
+                </Link>
+                <Flex
+                  gap={{ initial: "2", md: "5" }}
+                  justify={{ initial: "start", md: "between" }}
+                  align={{ initial: "center" }}
+                  direction={{ initial: "column", md: "row" }}
+                >
+                  <Flex gap='2'>
+                    <Price>
+                      <Text as='p' size={{ initial: "2", sm: "3" }} mr='.5'>
+                        {lineItem.price}
+                      </Text>
+                    </Price>
+                    {lineItem.price < lineItem.compare_at_price && (
+                      <>
+                        <Price>
+                          <Text
+                            as='p'
+                            size={{ initial: "2", sm: "3" }}
+                            className='line-through'
+                          >
+                            {lineItem.compare_at_price}
+                          </Text>
+                        </Price>
+                        <Badge color='crimson'>On Sale!</Badge>
+                      </>
+                    )}
+                  </Flex>
+                  <Flex
+                    gap='3'
+                    direction='row'
+                    wrap='nowrap'
+                    justify='start'
+                    align='center'
+                  >
+                    <QuantityInput
+                      product={lineItem}
+                      quantity={lineItem.quantity}
+                      updateCart={true}
+                      className='text-sm'
+                    />
+                    <IconButton
+                      variant='solid'
+                      highContrast
+                      className='hover:cursor-pointer'
+                      onClick={handleRemoveItem}
+                    >
+                      <TrashCan className='p-1' data-product-id={lineItem.id} />
+                    </IconButton>
+                  </Flex>
+                </Flex>
+              </Flex>
             </Flex>
-          </Link>
+          </Flex>
         </Table.RowHeaderCell>
-        <Table.Cell>
-          <Flex
-            gap='3'
-            direction='row'
-            wrap='nowrap'
-            justify='start'
-            align='center'
-          >
-            <QuantityInput
-              product={lineItem}
-              quantity={lineItem.quantity}
-              updateCart={true}
-            />
-            <IconButton
-              variant='solid'
-              highContrast
-              className='hover:cursor-pointer'
-              onClick={handleRemoveItem}
-            >
-              <TrashCan className='p-1' data-product-id={lineItem.id} />
-            </IconButton>
-          </Flex>
-        </Table.Cell>
-        <Table.Cell></Table.Cell>
-        <Table.Cell>
-          <Flex gap='2'>
-            <Price>
-              <Text as='p' size='3' mr='.5'>
-                {lineItem.price}
-              </Text>
-            </Price>
-            {lineItem.price < lineItem.compare_at_price && (
-              <>
-                <Price>
-                  <Text as='p' size='3' className='line-through'>
-                    {lineItem.compare_at_price}
-                  </Text>
-                </Price>
-                <Badge color='crimson'>On Sale!</Badge>
-              </>
-            )}
-          </Flex>
-        </Table.Cell>
+
         <Table.Cell>
           <Flex justify='start'>
             <Price>
@@ -117,9 +131,6 @@ function Cart() {
             <Table.Header>
               <Table.Row>
                 <Table.ColumnHeaderCell>Product</Table.ColumnHeaderCell>
-                <Table.ColumnHeaderCell>Quantity</Table.ColumnHeaderCell>
-                <Table.ColumnHeaderCell></Table.ColumnHeaderCell>
-                <Table.ColumnHeaderCell>Price</Table.ColumnHeaderCell>
                 <Table.ColumnHeaderCell>Total</Table.ColumnHeaderCell>
               </Table.Row>
             </Table.Header>
@@ -127,9 +138,6 @@ function Cart() {
             <Table.Body>
               {lineItems}
               <Table.Row>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
                 <Table.Cell justify='end' align='center'>
                   <Text as='p' size='3' mr='.5'>
                     Subtotal:
@@ -144,9 +152,6 @@ function Cart() {
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
                 <Table.Cell justify='end' align='center'>
                   <Text as='p' size='3' mr='.5'>
                     Royal taxes:
@@ -161,9 +166,6 @@ function Cart() {
                 </Table.Cell>
               </Table.Row>
               <Table.Row>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
-                <Table.Cell></Table.Cell>
                 <Table.Cell justify='end' align='center'>
                   <Text as='p' size='3' mr='.5'>
                     Total:

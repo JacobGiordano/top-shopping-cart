@@ -7,17 +7,16 @@ import navData from "../data/navigation.json";
 import CartIcon from "/src/assets/svg/cart.svg?react";
 import Gryphon from "/src/assets/svg/gryphon.svg?react";
 
-function Header({ cart }) {
+function Header({ cart, drawerIsOpen, setDrawerIsOpen }) {
   const handleThemeToggleClick = () => {
     const body = document.querySelector("body");
     const themeEl = document.querySelector(".radix-themes");
-    const themeInnerWrapper = document.querySelector(".theme-inner-wrapper");
-    const nav = document.querySelector(".site-nav");
     body.classList.toggle("light");
     themeEl.classList.toggle("dark");
-    themeInnerWrapper.classList.toggle("bg-slate-950");
-    nav.classList.toggle("group-[.open]:bg-zinc-900");
-    nav.classList.toggle("group-[.open]:bg-white");
+  };
+
+  const handleCartClick = () => {
+    setDrawerIsOpen(!drawerIsOpen);
   };
 
   return (
@@ -31,12 +30,16 @@ function Header({ cart }) {
             </Text>
           </Flex>
         </NavLink>
-        <NavLink to='/cart'>
-          <Flex gap='1' justify='center' align='center'>
-            <CartIcon width='21' />
-            <Text size='2'>{cart.length}</Text>
-          </Flex>
-        </NavLink>
+        <Flex
+          className='hover:cursor-pointer'
+          gap='1'
+          justify='center'
+          align='center'
+          onClick={handleCartClick}
+        >
+          <CartIcon width='21' />
+          <Text size='2'>{cart.length}</Text>
+        </Flex>
       </Flex>
       <Flex gap='2' justify='between' align='center'>
         <SiteNav navData={navData} />

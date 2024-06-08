@@ -14,9 +14,31 @@ import {
 import QuantityInput from "../components/QuantityInput";
 import Price from "../components/Price";
 import TrashCan from "/src/assets/svg/trash-can.svg?react";
+import { motion, AnimatePresence } from "framer-motion";
 
-function CartDrawer({ cart, setCart, draweIsOpen }) {
+function CartDrawer({ cart, setCart, drawerIsOpen, setDrawerIsOpen }) {
   let lineItemTotal = 0;
+
+  const variants = {
+    open: {
+      opacity: 1,
+      right: 0,
+      x: 0,
+      position: "absolute",
+      zIndex: 100,
+    },
+    closed: {
+      opacity: 0,
+      right: "-100%",
+      x: "100%",
+      position: "absolute",
+      zIndex: 100,
+    },
+  };
+
+  const handleCartClick = () => {
+    setDrawerIsOpen(!drawerIsOpen);
+  };
 
   const handleRemoveItem = (e) => {
     const lineItemId = e.target.dataset.productId;
@@ -37,7 +59,7 @@ function CartDrawer({ cart, setCart, draweIsOpen }) {
                 <img
                   src={lineItem.image}
                   alt={lineItem.title}
-                  className='max-w-[6rem]'
+                  className='max-w-16 sm:max-w-[6rem]'
                 />
               </Link>
               <Flex direction='column' gap='2'>
@@ -46,14 +68,18 @@ function CartDrawer({ cart, setCart, draweIsOpen }) {
                 </Link>
                 <Flex gap='2'>
                   <Price>
-                    <Text as='p' size='3' mr='.5'>
+                    <Text as='p' size={{ initial: "2", sm: "3" }} mr='.5'>
                       {lineItem.price}
                     </Text>
                   </Price>
                   {lineItem.price < lineItem.compare_at_price && (
                     <>
                       <Price>
-                        <Text as='p' size='3' className='line-through'>
+                        <Text
+                          as='p'
+                          size={{ initial: "2", sm: "3" }}
+                          className='line-through'
+                        >
                           {lineItem.compare_at_price}
                         </Text>
                       </Price>
@@ -74,6 +100,7 @@ function CartDrawer({ cart, setCart, draweIsOpen }) {
                     product={lineItem}
                     quantity={lineItem.quantity}
                     updateCart={true}
+                    className='text-sm'
                   />
                   <IconButton
                     variant='solid'
@@ -103,78 +130,92 @@ function CartDrawer({ cart, setCart, draweIsOpen }) {
   });
 
   return (
-    <Container className='pt-5 md:pt-8 p-2 max-w-[900px] m-auto w-full sm:max-w-[400px] md:w-[50%]'>
-      <Flex justify='between'>
-        <Heading
-          as='h1'
-          size='5'
-          mb='3'
-          align='left'
-          trim='both'
-          className='uncial-antiqua-regular uppercase'
-        >
-          Cart
-        </Heading>
-        <Button highContrast variant='outline' className='hover:cursor-pointer'>
-          &times;
-        </Button>
-      </Flex>
-      {cart.length > 0 ? (
-        <Box className='min-h-[500px]'>
-          <Table.Root variant='ghost'>
-            <Table.Header>
-              <Table.Row>
-                <Table.ColumnHeaderCell>Product</Table.ColumnHeaderCell>
-                <Table.ColumnHeaderCell>Total</Table.ColumnHeaderCell>
-              </Table.Row>
-            </Table.Header>
-
-            <Table.Body>
-              {lineItems}
-              <Table.Row>
-                <Table.Cell justify='end' align='center'>
-                  <Text as='p' size='3' mr='.5'>
-                    Subtotal:
-                  </Text>
-                </Table.Cell>
-                <Table.Cell>
-                  <Price>
-                    <Text as='p' size='3' mr='.5'>
-                      {lineItemTotal.toLocaleString()}
-                    </Text>
-                  </Price>
-                </Table.Cell>
-              </Table.Row>
-            </Table.Body>
-          </Table.Root>
-          <Flex justify='end' mt='4'>
-            <Link to={"/cart"}>
-              <Button className='hover:cursor-pointer' highContrast>
-                View Cart
-              </Button>
-            </Link>
-          </Flex>
-        </Box>
-      ) : (
-        <Section className='min-h-80 md:min-h-[500px]'>
-          <Flex
-            direction='column'
-            justify='center'
-            align='center'
-            className='min-h-80'
-            gap='5'
-          >
-            <Text as='p' size='6' className='max-w-[580px]'>
-              Your cart is empty, Dear Traveler. Please consider looking over
-              some of our humble offerings.
-            </Text>
-            <Button highContrast>
-              <Link to='/collections/all'>View All Products</Link>
+    <AnimatePresence>
+      <motion.aside
+        animate={drawerIsOpen ? "open" : "closed"}
+        variants={variants}
+        id='cart-drawer'
+        className='cart-drawer border-l cart-drawer pt-5 p-2 min-h-svh w-full sm:max-w-[400px]'
+      >
+        <Container>
+          <Flex justify='between'>
+            <Heading
+              as='h1'
+              size='5'
+              mb='3'
+              align='left'
+              trim='both'
+              className='uncial-antiqua-regular uppercase'
+            >
+              Cart
+            </Heading>
+            <Button
+              highContrast
+              variant='outline'
+              className='hover:cursor-pointer'
+              onClick={handleCartClick}
+            >
+              &times;
             </Button>
           </Flex>
-        </Section>
-      )}
-    </Container>
+          {cart.length > 0 ? (
+            <Box className='min-h-[500px]'>
+              <Table.Root variant='ghost'>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.ColumnHeaderCell>Product</Table.ColumnHeaderCell>
+                    <Table.ColumnHeaderCell>Total</Table.ColumnHeaderCell>
+                  </Table.Row>
+                </Table.Header>
+
+                <Table.Body>
+                  {lineItems}
+                  <Table.Row>
+                    <Table.Cell justify='end' align='center'>
+                      <Text as='p' size='3' mr='.5'>
+                        Subtotal:
+                      </Text>
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Price>
+                        <Text as='p' size='3' mr='.5'>
+                          {lineItemTotal.toLocaleString()}
+                        </Text>
+                      </Price>
+                    </Table.Cell>
+                  </Table.Row>
+                </Table.Body>
+              </Table.Root>
+              <Flex justify='end' mt='4'>
+                <Link to={"/cart"}>
+                  <Button className='hover:cursor-pointer' highContrast>
+                    View Cart
+                  </Button>
+                </Link>
+              </Flex>
+            </Box>
+          ) : (
+            <Section className='min-h-80 md:min-h-[500px]'>
+              <Flex
+                direction='column'
+                justify='center'
+                align='center'
+                className='min-h-80'
+                gap='5'
+              >
+                <Text as='p' size='6' className='max-w-[580px]'>
+                  Your cart is empty, Dear Traveler. Please consider looking
+                  over some of our humble offerings.
+                </Text>
+                <Button highContrast>
+                  <Link to='/collections/all'>View All Products</Link>
+                </Button>
+              </Flex>
+            </Section>
+          )}
+        </Container>
+      </motion.aside>
+    </AnimatePresence>
   );
 }
 export default CartDrawer;
