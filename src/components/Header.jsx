@@ -7,7 +7,7 @@ import navData from "../data/navigation.json";
 import CartIcon from "/src/assets/svg/cart.svg?react";
 import Gryphon from "/src/assets/svg/gryphon.svg?react";
 
-function Header({ cart, drawerIsOpen, setDrawerIsOpen }) {
+function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
   const handleThemeToggleClick = () => {
     const body = document.querySelector("body");
     const themeEl = document.querySelector(".radix-themes");
@@ -31,11 +31,13 @@ function Header({ cart, drawerIsOpen, setDrawerIsOpen }) {
           </Flex>
         </NavLink>
         <Flex
-          className='hover:cursor-pointer'
+          className={
+            location.pathname !== "/cart" ? "hover:cursor-pointer" : "disabled"
+          }
           gap='1'
           justify='center'
           align='center'
-          onClick={handleCartClick}
+          onClick={location.pathname !== "/cart" && handleCartClick}
         >
           <CartIcon width='21' />
           <Text size='2'>{cart.length}</Text>

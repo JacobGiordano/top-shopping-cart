@@ -22,6 +22,14 @@ function Root() {
       .classList.toggle("overflow-hidden");
   }, [drawerIsOpen]);
 
+  useEffect(() => {
+    setDrawerIsOpen(false);
+  }, [location]);
+
+  const handleCartDrawerOverlayClick = () => {
+    setDrawerIsOpen(!drawerIsOpen);
+  };
+
   console.log(cart);
   console.log(location.pathname);
   return (
@@ -30,8 +38,9 @@ function Root() {
         cart={cart}
         drawerIsOpen={drawerIsOpen}
         setDrawerIsOpen={setDrawerIsOpen}
+        location={location}
       />
-      {location.pathname !== "/cart" && (
+      {location.pathname !== "/cart" && drawerIsOpen && (
         <CartDrawer
           cart={cart}
           setCart={setCart}
@@ -39,8 +48,22 @@ function Root() {
           setDrawerIsOpen={setDrawerIsOpen}
         ></CartDrawer>
       )}
+      {drawerIsOpen && (
+        <div
+          className='absolute w-svw h-svh bg-black/50 z-10 hover:cursor-pointer'
+          onClick={handleCartDrawerOverlayClick}
+        ></div>
+      )}
       {/* Passing context using object structuring */}
-      <Outlet context={{ cart, setCart, data }} />
+      <Outlet
+        context={{
+          cart,
+          setCart,
+          data,
+          drawerIsOpen,
+          setDrawerIsOpen,
+        }}
+      />
       <Footer />
     </div>
   );
