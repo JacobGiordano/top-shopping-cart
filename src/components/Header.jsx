@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
-import { Box, Flex, Switch, Text } from "@radix-ui/themes";
+import { Flex, Switch, Text } from "@radix-ui/themes";
 import Moon from "/src/assets/svg/moon.svg?react";
 import Sun from "/src/assets/svg/sun.svg?react";
 import SiteNav from "./SiteNav";
 import navData from "../data/navigation.json";
 import CartIcon from "/src/assets/svg/cart.svg?react";
 import Gryphon from "/src/assets/svg/gryphon.svg?react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useState } from "react";
 
 function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
   const handleThemeToggleClick = () => {
@@ -15,12 +17,40 @@ function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
     themeEl.classList.toggle("dark");
   };
 
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (current) => {
+    const previous = scrollY.getPrevious();
+    console.log(current, previous);
+    // current > previous ? setHidden(true) : setHidden(false);
+    if (current > previous) {
+      setHidden(true);
+      console.log(hidden);
+    } else {
+      setHidden(false);
+      console.log(hidden);
+    }
+  });
+
   const handleCartClick = () => {
     setDrawerIsOpen(!drawerIsOpen);
   };
 
   return (
-    <header className='flex justify-between flex-col py-2 gap-2 group border-b'>
+    <motion.header
+      className='sticky top-0 flex justify-between flex-col py-2 gap-2 group border-b z-50'
+      variants={{
+        visible: {
+          y: 0,
+        },
+        hidden: {
+          y: "-100%",
+        },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+    >
       <Flex justify='between' align='center'>
         <NavLink to='/'>
           <Flex justify='start' align='center' gap='2'>
@@ -56,7 +86,7 @@ function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
           <Moon className='w-3' />
         </Flex>
       </Flex>
-    </header>
+    </motion.header>
   );
 }
 export default Header;

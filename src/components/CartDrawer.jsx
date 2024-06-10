@@ -14,7 +14,7 @@ import {
 import QuantityInput from "../components/QuantityInput";
 import Price from "../components/Price";
 import TrashCan from "/src/assets/svg/trash-can.svg?react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, easeInOut } from "framer-motion";
 
 function CartDrawer({ cart, setCart, drawerIsOpen, setDrawerIsOpen }) {
   let lineItemTotal = 0;
@@ -144,6 +144,7 @@ function CartDrawer({ cart, setCart, drawerIsOpen, setDrawerIsOpen }) {
             initial={"initial"}
             animate={drawerIsOpen ? "open" : "closed"}
             variants={variants}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
             id='cart-drawer'
             className='cart-drawer border-l cart-drawer pt-5 p-2 min-h-svh w-full sm:max-w-[400px]'
           >

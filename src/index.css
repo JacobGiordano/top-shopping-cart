@@ -14,7 +14,10 @@ is from here: https://www.frontend.fyi/v/fixing-radix-themes-with-css-cascade-la
 }
 
 body {
-  & .theme-inner-wrapper {
+  background-color: rgb(2 6 23 / 1);
+  background: rgb(2 6 23 / 1);
+  & .theme-inner-wrapper,
+  header {
     background-color: rgb(2 6 23 / 1);
     background: rgb(2 6 23 / 1);
   }
@@ -36,7 +39,10 @@ body {
 }
 
 body.light {
-  & .theme-inner-wrapper {
+  background-color: #fff;
+  background: #fff;
+  & .theme-inner-wrapper,
+  header {
     background-color: #fff;
     background: #fff;
   }

@@ -42,16 +42,19 @@ function Categories() {
           >
             We&apos;ve got your back!
           </Heading>
-          <Text>
+          <Text as='p'>
             Every adventurer is unique and every epic quest requires your best.
             Here at Gilded Gryphon we help you get back out there with the right
             gear, at affordable prices.
           </Text>
-          <Text>
-            That&apos; why we offer the wides selection of goods to make each
-            outing successful. From common potions to ultra-rare finds, we scour
-            the known world to offer only the best items you hard-earned coins
-            can buy.
+          <Text as='p'>
+            From common potions to ultra-rare finds, we scour the known world —
+            and beyond — just so we can offer only the best items your
+            hard-earned coin can buy.
+          </Text>
+          <Text as='p'>
+            Select a category and dive in, we&apos;re sure to have something for
+            everyone! Don&apos;t see what you&apos;re looking for? Let us know!
           </Text>
         </Flex>
       </Box>
