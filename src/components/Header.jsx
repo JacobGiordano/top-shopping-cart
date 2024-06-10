@@ -37,7 +37,7 @@ function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
           gap='1'
           justify='center'
           align='center'
-          onClick={location.pathname !== "/cart" && handleCartClick}
+          onClick={location.pathname !== "/cart" ? handleCartClick : undefined}
         >
           <CartIcon width='21' />
           <Text size='2'>{cart.length}</Text>
