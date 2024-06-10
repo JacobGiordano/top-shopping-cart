@@ -142,6 +142,7 @@ function ProductDetail() {
               className='hover:cursor-pointer'
               onClick={handleAddToCartClick}
               data-add-to-cart
+              disabled={available === 0 ? true : false}
             >
               Add to cart
             </Button>
