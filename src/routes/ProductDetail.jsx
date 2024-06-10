@@ -55,6 +55,7 @@ function ProductDetail() {
       : context.setCart(updatedCart);
 
     document.querySelector("[data-product-id]").value = 1;
+    context.setDrawerIsOpen(true);
   };
 
   const capitalizeEachWord = (string) => {

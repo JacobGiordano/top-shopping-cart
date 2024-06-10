@@ -40,7 +40,7 @@ function Root() {
         setDrawerIsOpen={setDrawerIsOpen}
         location={location}
       />
-      {location.pathname !== "/cart" && drawerIsOpen && (
+      {location.pathname !== "/cart" && (
         <CartDrawer
           cart={cart}
           setCart={setCart}
