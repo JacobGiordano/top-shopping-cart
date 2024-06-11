@@ -33,7 +33,7 @@ function Root() {
   console.log(cart);
   console.log(location.pathname);
   return (
-    <div className='relative'>
+    <div className='relative overflow-clip'>
       <Header
         cart={cart}
         drawerIsOpen={drawerIsOpen}
@@ -46,11 +46,12 @@ function Root() {
           setCart={setCart}
           drawerIsOpen={drawerIsOpen}
           setDrawerIsOpen={setDrawerIsOpen}
+          location={location}
         ></CartDrawer>
       )}
       {drawerIsOpen && (
         <div
-          className='absolute top-0 left-0 w-svw h-svh z-10 hover:cursor-pointer'
+          className='absolute top-0 left-0 w-full h-full z-10 hover:cursor-pointer'
           onClick={handleCartDrawerOverlayClick}
         ></div>
       )}
