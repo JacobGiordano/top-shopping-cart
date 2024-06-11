@@ -138,11 +138,12 @@ function CartDrawer({ cart, setCart, drawerIsOpen, setDrawerIsOpen }) {
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence mode='wait' key={location.pathname}>
         {drawerIsOpen && (
           <motion.aside
             initial={"initial"}
             animate={drawerIsOpen ? "open" : "closed"}
+            exit={"closed"}
             variants={variants}
             transition={{ duration: 0.35, ease: "easeInOut" }}
             id='cart-drawer'
