@@ -7,7 +7,7 @@ import navData from "../data/navigation.json";
 import CartIcon from "/src/assets/svg/cart.svg?react";
 import Gryphon from "/src/assets/svg/gryphon.svg?react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
   const handleThemeToggleClick = () => {
@@ -19,10 +19,11 @@ function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
 
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
+  const headerRef = useRef(null);
 
   useMotionValueEvent(scrollY, "change", (current) => {
     const previous = scrollY.getPrevious();
-    if (current > previous) {
+    if (current > previous && current > headerRef.current.clientHeight) {
       setHidden(true);
     } else {
       setHidden(false);
@@ -46,6 +47,7 @@ function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.35, ease: "easeInOut" }}
+      ref={headerRef}
     >
       <Flex justify='between' align='center'>
         <NavLink to='/'>
