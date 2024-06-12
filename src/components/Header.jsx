@@ -22,14 +22,10 @@ function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
 
   useMotionValueEvent(scrollY, "change", (current) => {
     const previous = scrollY.getPrevious();
-    console.log(current, previous);
-    // current > previous ? setHidden(true) : setHidden(false);
     if (current > previous) {
       setHidden(true);
-      console.log(hidden);
     } else {
       setHidden(false);
-      console.log(hidden);
     }
   });
 
