@@ -8,6 +8,7 @@ import CartIcon from "/src/assets/svg/cart.svg?react";
 import Gryphon from "/src/assets/svg/gryphon.svg?react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState, useRef } from "react";
+import ScrollLock from "./ScrollLock";
 
 function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
   const handleThemeToggleClick = () => {
@@ -49,6 +50,7 @@ function Header({ cart, drawerIsOpen, setDrawerIsOpen, location }) {
       transition={{ duration: 0.35, ease: "easeInOut" }}
       ref={headerRef}
     >
+      <ScrollLock />
       <Flex justify='between' align='center'>
         <NavLink to='/'>
           <Flex justify='start' align='center' gap='2'>
