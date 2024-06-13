@@ -43,7 +43,7 @@ function CartDrawer({ cart, setCart, drawerIsOpen, setDrawerIsOpen }) {
     },
   };
 
-  const handleCartClick = () => {
+  const handleCartCloseBtnClick = () => {
     setDrawerIsOpen(!drawerIsOpen);
   };
 
@@ -165,7 +165,7 @@ function CartDrawer({ cart, setCart, drawerIsOpen, setDrawerIsOpen }) {
                   highContrast
                   variant='outline'
                   className='hover:cursor-pointer'
-                  onClick={handleCartClick}
+                  onClick={handleCartCloseBtnClick}
                 >
                   &times;
                 </Button>
