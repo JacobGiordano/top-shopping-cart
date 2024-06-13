@@ -5,6 +5,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import data from "../data/products.json";
 import CartDrawer from "../components/CartDrawer";
+import ScrollLock from "../components/ScrollLock";
 
 function Root() {
   const storedData = JSON.parse(sessionStorage.getItem("cart"));
@@ -24,10 +25,9 @@ function Root() {
     setDrawerIsOpen(!drawerIsOpen);
   };
 
-  console.log(cart);
-  console.log(location.pathname);
   return (
     <div className='relative overflow-clip'>
+      <ScrollLock boolVal={drawerIsOpen} />
       <Header
         cart={cart}
         drawerIsOpen={drawerIsOpen}

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const ScrollLock = () => {
-  const [isScrollLocked, setIsScrollLocked] = useState(false);
+const ScrollLock = ({ boolVal }) => {
+  const isScrollLocked = boolVal;
   const scrollPosition = useRef({ top: 0, left: 0 });
 
   useEffect(() => {
@@ -47,17 +47,7 @@ const ScrollLock = () => {
     }
   }, [isScrollLocked]);
 
-  const toggleScrollLock = () => {
-    setIsScrollLocked((prev) => !prev);
-  };
-
-  return (
-    <div>
-      <button onClick={toggleScrollLock}>
-        {isScrollLocked ? "Unlock Scroll" : "Lock Scroll"}
-      </button>
-    </div>
-  );
+  return <></>;
 };
 
 export default ScrollLock;
