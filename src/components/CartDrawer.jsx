@@ -70,7 +70,7 @@ const CartDrawer = forwardRef(function CartDrawer(
                 <img
                   src={lineItem.image}
                   alt={lineItem.title}
-                  className='max-w-16 sm:max-w-[6rem]'
+                  className='max-w-16 sm:max-w-[6rem] rounded-md'
                 />
               </Link>
               <Flex direction='column' gap='2'>

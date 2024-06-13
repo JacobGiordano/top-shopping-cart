@@ -38,7 +38,7 @@ function Cart() {
                 <img
                   src={lineItem.image}
                   alt={lineItem.title}
-                  className='max-w-16 sm:max-w-[6rem]'
+                  className='max-w-16 sm:max-w-[6rem] rounded-md'
                 />
               </Link>
               <Flex direction='column' gap='2'>
@@ -48,7 +48,7 @@ function Cart() {
                 <Flex
                   gap={{ initial: "2", md: "5" }}
                   justify={{ initial: "start", md: "between" }}
-                  align={{ initial: "center" }}
+                  align={{ initial: "start", md: "center" }}
                   direction={{ initial: "column", md: "row" }}
                 >
                   <Flex gap='2'>
@@ -160,7 +160,7 @@ function Cart() {
                 <Table.Cell>
                   <Price>
                     <Text as='p' size='3' mr='.5'>
-                      {lineItemTotal * 0.1}
+                      {(lineItemTotal * 0.1).toFixed(2)}
                     </Text>
                   </Price>
                 </Table.Cell>
@@ -174,7 +174,9 @@ function Cart() {
                 <Table.Cell>
                   <Price>
                     <Text as='p' size='3' mr='.5'>
-                      {(lineItemTotal + lineItemTotal * 0.1).toLocaleString()}
+                      {(lineItemTotal + lineItemTotal * 0.1)
+                        .toFixed(2)
+                        .toLocaleString()}
                     </Text>
                   </Price>
                 </Table.Cell>
