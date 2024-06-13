@@ -50,7 +50,10 @@ function QuantityInput({ product, quantity, updateCart, cart, setCart }) {
           ? { ...cartItem, quantity: parseInt(lineItemQtyInput.value) }
           : cartItem
       );
-      setCartFunc(updatedCart);
+      if (!isNaN(parseInt(lineItemQtyInput.value))) {
+        setCartFunc(updatedCart);
+        setInputVal(lineItemQtyInput.value);
+      }
     } else {
       document.querySelector("[data-product-available]").textContent =
         available;
