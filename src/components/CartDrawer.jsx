@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { Link } from "react-router-dom";
 import {
   Badge,
@@ -16,7 +17,10 @@ import Price from "../components/Price";
 import TrashCan from "/src/assets/svg/trash-can.svg?react";
 import { motion, AnimatePresence, easeInOut } from "framer-motion";
 
-function CartDrawer({ cart, setCart, drawerIsOpen, setDrawerIsOpen }) {
+const CartDrawer = forwardRef(function CartDrawer(
+  { cart, setCart, drawerIsOpen, setDrawerIsOpen },
+  ref
+) {
   let lineItemTotal = 0;
 
   const variants = {
@@ -24,21 +28,21 @@ function CartDrawer({ cart, setCart, drawerIsOpen, setDrawerIsOpen }) {
       opacity: 0,
       right: "-100%",
       x: "100%",
-      position: "absolute",
+      position: "fixed",
       zIndex: 100,
     },
     open: {
       opacity: 1,
       right: 0,
       x: 0,
-      position: "absolute",
+      position: "fixed",
       zIndex: 100,
     },
     closed: {
       opacity: 0,
       right: "-100%",
       x: "100%",
-      position: "absolute",
+      position: "fixed",
       zIndex: 100,
     },
   };
@@ -148,6 +152,7 @@ function CartDrawer({ cart, setCart, drawerIsOpen, setDrawerIsOpen }) {
             transition={{ duration: 0.35, ease: "easeInOut" }}
             id='cart-drawer'
             className='cart-drawer border-l cart-drawer pt-5 p-2 min-h-svh w-full sm:max-w-[400px]'
+            ref={ref}
           >
             <Container>
               <Flex justify='between'>
@@ -231,5 +236,5 @@ function CartDrawer({ cart, setCart, drawerIsOpen, setDrawerIsOpen }) {
       </AnimatePresence>
     </>
   );
-}
+});
 export default CartDrawer;

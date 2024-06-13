@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Outlet, useLocation } from "react-router-dom";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import data from "../data/products.json";
 import CartDrawer from "../components/CartDrawer";
 import ScrollLock from "../components/ScrollLock";
@@ -11,6 +11,8 @@ function Root() {
   const storedData = JSON.parse(sessionStorage.getItem("cart"));
   const [cart, setCart] = useState(storedData || []);
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+  const headerRef = useRef(null);
+  const cartDrawerRef = useRef(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -20,6 +22,12 @@ function Root() {
   useEffect(() => {
     setDrawerIsOpen(false);
   }, [location]);
+
+  useEffect(() => {
+    if (cartDrawerRef.current) {
+      cartDrawerRef.current.scrollTop = headerRef.current.clientHeight;
+    }
+  }, [drawerIsOpen]);
 
   const handleCartDrawerOverlayClick = () => {
     setDrawerIsOpen(!drawerIsOpen);
@@ -33,6 +41,7 @@ function Root() {
         drawerIsOpen={drawerIsOpen}
         setDrawerIsOpen={setDrawerIsOpen}
         location={location}
+        ref={headerRef}
       />
       {location.pathname !== "/cart" && (
         <CartDrawer
@@ -41,11 +50,12 @@ function Root() {
           drawerIsOpen={drawerIsOpen}
           setDrawerIsOpen={setDrawerIsOpen}
           location={location}
+          ref={cartDrawerRef}
         ></CartDrawer>
       )}
       {drawerIsOpen && (
         <div
-          className='absolute top-0 left-0 w-full h-full z-10 hover:cursor-pointer'
+          className='absolute top-0 left-0 w-full h-full z-20 hover:cursor-pointer'
           onClick={handleCartDrawerOverlayClick}
         ></div>
       )}
