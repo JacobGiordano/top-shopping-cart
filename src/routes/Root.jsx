@@ -17,12 +17,6 @@ function Root() {
   }, [cart]);
 
   useEffect(() => {
-    document
-      .querySelector(".theme-inner-wrapper")
-      .classList.toggle("overflow-hidden");
-  }, [drawerIsOpen]);
-
-  useEffect(() => {
     setDrawerIsOpen(false);
   }, [location]);
 
