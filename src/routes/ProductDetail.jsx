@@ -133,7 +133,9 @@ function ProductDetail() {
           </Flex>
           <Flex gap='2' align='baseline'>
             <PDPInfoTitle text='Available: ' />
-            <Text data-product-available>{available}</Text>
+            <Text data-product-available>
+              {available && available !== 0 ? available : "—"}
+            </Text>
           </Flex>
           <QuantityInput product={product} updateCart={false} />
           <Box mt='2' mb='6'>
