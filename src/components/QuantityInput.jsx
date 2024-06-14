@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Flex, IconButton } from "@radix-ui/themes";
 import PDPInfoTitle from "./PDPInfoTitle";
 
 function QuantityInput({ product, quantity, updateCart, cart, setCart }) {
+  const [inputValue, setInputValue] = useState(quantity || 1);
   const context = useOutletContext();
   const cartData = cart || context.cart;
   const setCartFunc = setCart || context.setCart;
@@ -14,50 +16,58 @@ function QuantityInput({ product, quantity, updateCart, cart, setCart }) {
 
   const handleQtyClick = (e) => {
     const action = e.target.dataset.action;
-    const qtyEl = document.querySelector(`[data-product-id='${product.id}']`);
+    let newValue = inputValue;
+
     if (action === "increase") {
-      qtyEl.value !== qtyEl.max
-        ? (qtyEl.value = parseInt(qtyEl.value) + 1)
-        : null;
-    } else {
-      qtyEl.value !== qtyEl.min
-        ? (qtyEl.value = parseInt(qtyEl.value) - 1)
-        : null;
+      newValue = Math.min(inputValue + 1, available);
+    } else if (action === "decrease") {
+      newValue = Math.max(inputValue - 1, 1);
     }
-    updateCart === true ? handleQtyUpdate(e) : null;
+
+    setInputValue(newValue);
+    if (updateCart) {
+      handleQtyUpdate(newValue);
+    }
   };
 
-  const validateQty = () => {
-    const qtyEl = document.querySelector(`[data-product-id='${product.id}'`);
-    let isValid = false;
-    if (parseInt(qtyEl.value) > parseInt(qtyEl.max)) {
-      qtyEl.value = qtyEl.max;
-    } else {
-      isValid = true;
-    }
-    return isValid;
+  const validateQty = (value) => {
+    let newValue = Math.min(Math.max(value, 1), available);
+    setInputValue(newValue);
+    return newValue;
   };
 
-  const handleQtyUpdate = (e) => {
-    if (!validateQty()) return;
-    if (updateCart === true) {
-      const lineItemQtyInput = e.target
-        .closest("fieldset")
-        .querySelector("[data-product-id]");
-      const lineItemId = lineItemQtyInput.dataset.productId;
-      const updatedCart = cartData.map((cartItem) =>
-        parseInt(lineItemId) === cartItem.id
-          ? { ...cartItem, quantity: parseInt(lineItemQtyInput.value) }
-          : cartItem
-      );
-      if (!isNaN(parseInt(lineItemQtyInput.value))) {
+  const handleQtyUpdate = (newValue) => {
+    if (isNaN(newValue) || newValue === "") {
+      setInputValue(1); // Default to 1 if value is invalid or empty
+    } else {
+      const validatedValue = validateQty(newValue);
+      if (updateCart) {
+        const updatedCart = cartData.map((cartItem) =>
+          cartItem.id === product.id
+            ? { ...cartItem, quantity: validatedValue }
+            : cartItem
+        );
         setCartFunc(updatedCart);
-        setInputVal(lineItemQtyInput.value);
       }
-    } else {
-      document.querySelector("[data-product-available]").textContent =
-        available;
     }
+  };
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    if (value === "") {
+      // Allow empty input but don't update the cart yet
+      setInputValue("");
+    } else {
+      const newValue = parseInt(value, 10);
+      if (!isNaN(newValue)) {
+        setInputValue(newValue);
+      }
+    }
+  };
+
+  const handleBlur = (e) => {
+    // Validate and update quantity on blur if empty or invalid
+    handleQtyUpdate(parseInt(e.target.value, 10) || 1);
   };
 
   return (
@@ -71,35 +81,36 @@ function QuantityInput({ product, quantity, updateCart, cart, setCart }) {
             data-action='decrease'
             className='hover:cursor-pointer'
             onClick={handleQtyClick}
-            disabled={!updateCart && available === 0 ? true : false}
+            disabled={!updateCart && available === 0}
           >
             -
           </IconButton>
 
           <label hidden={true} htmlFor='quantity'>
-            Quanity
+            Quantity
           </label>
 
           <input
             type='number'
             name='quantity'
             id='quantity'
-            defaultValue={quantity || 1}
+            value={inputValue}
             min={1}
             max={available}
-            disabled={available === 0 ? true : false}
+            disabled={available === 0}
             data-product-id={product.id}
             className='border rounded-md pt-1 pb-1 pl-2 pr-2 min-w-12 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none'
-            onKeyUp={validateQty}
-            onChange={(e) => handleQtyUpdate(e)}
+            onChange={handleChange}
+            onBlur={handleBlur}
           />
+
           <IconButton
             variant='solid'
             highContrast
             data-action='increase'
             className='hover:cursor-pointer'
             onClick={handleQtyClick}
-            disabled={!updateCart && available === 0 ? true : false}
+            disabled={!updateCart && available === 0}
           >
             +
           </IconButton>
@@ -108,4 +119,5 @@ function QuantityInput({ product, quantity, updateCart, cart, setCart }) {
     </Flex>
   );
 }
+
 export default QuantityInput;
