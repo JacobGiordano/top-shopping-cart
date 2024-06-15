@@ -1,9 +1,12 @@
-import { useState } from "react";
+import { useState, useImperativeHandle, useRef, forwardRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Flex, IconButton } from "@radix-ui/themes";
 import PDPInfoTitle from "./PDPInfoTitle";
 
-function QuantityInput({ product, quantity, updateCart, cart, setCart }) {
+const QuantityInput = forwardRef(function QuantityInput(
+  { product, quantity, updateCart, cart, setCart },
+  ref
+) {
   const [inputValue, setInputValue] = useState(quantity || 1);
   const context = useOutletContext();
   const cartData = cart || context.cart;
@@ -13,6 +16,15 @@ function QuantityInput({ product, quantity, updateCart, cart, setCart }) {
     !updateCart && cartItem
       ? product.available - cartItem.quantity
       : product.available;
+  const inputRef = useRef();
+
+  useImperativeHandle(ref, () => ({
+    resetInput() {
+      if (inputRef.current) {
+        setInputValue(1);
+      }
+    },
+  }));
 
   const handleQtyClick = (e) => {
     const action = e.target.dataset.action;
@@ -91,6 +103,7 @@ function QuantityInput({ product, quantity, updateCart, cart, setCart }) {
           </label>
 
           <input
+            ref={inputRef}
             type='number'
             name='quantity'
             id='quantity'
@@ -118,6 +131,6 @@ function QuantityInput({ product, quantity, updateCart, cart, setCart }) {
       </fieldset>
     </Flex>
   );
-}
+});
 
 export default QuantityInput;

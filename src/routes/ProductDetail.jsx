@@ -12,6 +12,7 @@ import {
   Badge,
   Button,
 } from "@radix-ui/themes";
+import { useRef } from "react";
 
 function ProductDetail() {
   const { handle } = useParams();
@@ -22,6 +23,7 @@ function ProductDetail() {
   const available = cartItem
     ? product.available - cartItem.quantity
     : product.available;
+  const inputRef = useRef();
 
   const handleAddToCartClick = () => {
     let lineItem = {
@@ -54,7 +56,9 @@ function ProductDetail() {
       ? context.setCart([...updatedCart, lineItem])
       : context.setCart(updatedCart);
 
-    document.querySelector("[data-product-id]").value = 1;
+    if (inputRef.current) {
+      inputRef.current.resetInput();
+    }
     context.setDrawerIsOpen(true);
   };
 
@@ -137,7 +141,7 @@ function ProductDetail() {
               {available && available !== 0 ? available : "—"}
             </Text>
           </Flex>
-          <QuantityInput product={product} updateCart={false} />
+          <QuantityInput product={product} updateCart={false} ref={inputRef} />
           <Box mt='2' mb='6'>
             <Button
               variant='solid'
