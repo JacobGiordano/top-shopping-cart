@@ -152,11 +152,14 @@ const CartDrawer = forwardRef(function CartDrawer(
             variants={variants}
             transition={{ duration: 0.35, ease: "easeInOut" }}
             id='cart-drawer'
-            className='cart-drawer border-l cart-drawer pt-5 p-2 min-h-svh w-full sm:max-w-[400px]'
+            className='cart-drawer relative border-l cart-drawer pt-5 p-2 min-h-svh w-full sm:max-w-[400px]'
             ref={ref}
           >
             <Container>
-              <Flex justify='between'>
+              <Flex
+                justify='between'
+                align='center'
+              >
                 <Heading
                   as='h1'
                   size='5'
