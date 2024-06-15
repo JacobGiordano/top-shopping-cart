@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 const ScrollLock = ({ boolVal }) => {
   const isScrollLocked = boolVal;

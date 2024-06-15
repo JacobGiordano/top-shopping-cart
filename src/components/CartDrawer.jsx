@@ -36,6 +36,7 @@ const CartDrawer = forwardRef(function CartDrawer(
       right: 0,
       x: 0,
       position: "fixed",
+      overflow: "auto",
       zIndex: 100,
     },
     closed: {
