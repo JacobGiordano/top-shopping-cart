@@ -2,6 +2,7 @@ import { useState, useImperativeHandle, useRef, forwardRef } from "react";
 import { useOutletContext } from "react-router-dom";
 import { Flex, IconButton } from "@radix-ui/themes";
 import PDPInfoTitle from "./PDPInfoTitle";
+import PropTypes from "prop-types";
 
 const QuantityInput = forwardRef(function QuantityInput(
   { product, quantity, updateCart, cart, setCart },
@@ -132,5 +133,13 @@ const QuantityInput = forwardRef(function QuantityInput(
     </Flex>
   );
 });
+
+QuantityInput.propTypes = {
+  product: PropTypes.object,
+  quantity: PropTypes.number,
+  updateCart: PropTypes.bool,
+  cart: PropTypes.array,
+  setCart: PropTypes.func,
+};
 
 export default QuantityInput;

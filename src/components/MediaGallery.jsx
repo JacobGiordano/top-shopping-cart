@@ -1,4 +1,5 @@
 import { Box } from "@radix-ui/themes";
+import PropTypes from "prop-types";
 
 function MediaGallery({ product }) {
   return (
@@ -7,4 +8,9 @@ function MediaGallery({ product }) {
     </Box>
   );
 }
+
+MediaGallery.propTypes = {
+  product: PropTypes.object,
+};
+
 export default MediaGallery;
