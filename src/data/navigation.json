@@ -1,0 +1,56 @@
+{
+  "navigation": [
+    {
+      "category": "All Products",
+      "url": "/collections/all"
+    },
+    {
+      "category": "Consumables",
+      "subcategories": [
+        { "name": "All Consumables", "url": "/collections/consumables" },
+        { "name": "Potions", "url": "/collections/potions" },
+        { "name": "Elixirs", "url": "/collections/elixirs" },
+        { "name": "Scrolls", "url": "/collections/scrolls" },
+        { "name": "Antidotes", "url": "/collections/antidotes" }
+      ]
+    },
+    {
+      "category": "Weapons",
+      "subcategories": [
+        { "name": "All Weapons", "url": "/collections/weapons" },
+        { "name": "Swords", "url": "/collections/swords" },
+        { "name": "Wands", "url": "/collections/wands" },
+        { "name": "Rods", "url": "/collections/rods" },
+        { "name": "Staff", "url": "/collections/staff" }
+      ]
+    },
+    {
+      "category": "Armor",
+      "subcategories": [
+        { "name": "All Armor", "url": "/collections/armor" },
+        { "name": "Armor Sets", "url": "/collections/armor-set" },
+        { "name": "Boots", "url": "/collections/boots" },
+        { "name": "Capes", "url": "/collections/capes" },
+        { "name": "Shields", "url": "/collections/shields" },
+        { "name": "Helms", "url": "/collections/helms" },
+        { "name": "Robes", "url": "/collections/robes" },
+        { "name": "Cloaks", "url": "/collections/cloaks" },
+        { "name": "Gauntlets", "url": "/collections/gauntlets" },
+        { "name": "Belts", "url": "/collections/belts" }
+      ]
+    },
+    {
+      "category": "Relics",
+      "subcategories": [
+        { "name": "All Relics", "url": "/collections/relics" },
+        { "name": "Rings", "url": "/collections/rings" },
+        { "name": "Amulets", "url": "/collections/amulets" },
+        { "name": "Necklaces", "url": "/collections/necklaces" }
+      ]
+    },
+    {
+      "category": "Utilities",
+      "url": "/collections/utilities"
+    }
+  ]
+}
