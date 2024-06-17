@@ -4,7 +4,6 @@ import {
   Badge,
   Box,
   Button,
-  Container,
   Flex,
   Heading,
   IconButton,
@@ -15,7 +14,8 @@ import {
 import QuantityInput from "../components/QuantityInput";
 import Price from "../components/Price";
 import TrashCan from "/src/assets/svg/trash-can.svg?react";
-import { motion, AnimatePresence, easeInOut } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import PropTypes from "prop-types";
 
 const CartDrawer = forwardRef(function CartDrawer(
   { cart, setCart, drawerIsOpen, setDrawerIsOpen },
@@ -232,4 +232,12 @@ const CartDrawer = forwardRef(function CartDrawer(
     </>
   );
 });
+
+CartDrawer.propTypes = {
+  cart: PropTypes.array,
+  setCart: PropTypes.func,
+  drawerIsOpen: PropTypes.bool,
+  setDrawerIsOpen: PropTypes.func,
+};
+
 export default CartDrawer;

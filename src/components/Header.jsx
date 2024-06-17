@@ -8,6 +8,7 @@ import CartIcon from "/src/assets/svg/cart.svg?react";
 import Gryphon from "/src/assets/svg/gryphon.svg?react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState, forwardRef } from "react";
+import PropTypes from "prop-types";
 
 const Header = forwardRef(function Header(
   { cart, drawerIsOpen, setDrawerIsOpen, location },
@@ -89,4 +90,12 @@ const Header = forwardRef(function Header(
     </motion.header>
   );
 });
+
+Header.propTypes = {
+  cart: PropTypes.array,
+  drawerIsOpen: PropTypes.bool,
+  setDrawerIsOpen: PropTypes.func,
+  location: PropTypes.object,
+};
+
 export default Header;

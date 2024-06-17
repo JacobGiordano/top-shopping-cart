@@ -1,4 +1,5 @@
 import { Text } from "@radix-ui/themes";
+import PropTypes from "prop-types";
 
 function PDPInfoTitle({ text }) {
   return (
@@ -7,4 +8,9 @@ function PDPInfoTitle({ text }) {
     </Text>
   );
 }
+
+PDPInfoTitle.propTypes = {
+  text: PropTypes.string,
+};
+
 export default PDPInfoTitle;

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import GitHubLogo from "/src/assets/svg/github-logo.svg?react";
-import { Box, Text, Flex } from "@radix-ui/themes";
+import { Text, Flex } from "@radix-ui/themes";
 
 function Footer() {
   return (

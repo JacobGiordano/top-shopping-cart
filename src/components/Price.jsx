@@ -1,6 +1,6 @@
 import { Flex } from "@radix-ui/themes";
-import Gem from "/src/assets/svg/gem.svg?react";
 import Coins from "/src/assets/svg/coins.svg?react";
+import PropTypes from "prop-types";
 
 function Price({ children }) {
   return (
@@ -10,4 +10,9 @@ function Price({ children }) {
     </Flex>
   );
 }
+
+Price.propTypes = {
+  children: PropTypes.node,
+};
+
 export default Price;

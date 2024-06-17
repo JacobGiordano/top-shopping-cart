@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 
 const ScrollLock = ({ boolVal }) => {
   const isScrollLocked = boolVal;
@@ -48,6 +49,10 @@ const ScrollLock = ({ boolVal }) => {
   }, [isScrollLocked]);
 
   return <></>;
+};
+
+ScrollLock.propTypes = {
+  boolVal: PropTypes.bool,
 };
 
 export default ScrollLock;
