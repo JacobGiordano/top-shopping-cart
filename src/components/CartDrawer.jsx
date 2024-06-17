@@ -70,7 +70,7 @@ const CartDrawer = forwardRef(function CartDrawer(
                 <img
                   src={lineItem.image}
                   alt={lineItem.title}
-                  className='max-w-16 sm:max-w-[6rem] rounded-md'
+                  className='max-[380px]:max-w-16 max-w-[6rem] rounded-md'
                 />
               </Link>
               <Flex direction='column' gap='2'>
@@ -151,7 +151,7 @@ const CartDrawer = forwardRef(function CartDrawer(
             variants={variants}
             transition={{ duration: 0.35, ease: "easeInOut" }}
             id='cart-drawer'
-            className='cart-drawer fixed top-0 right-0 h-full sm:max-w-[400px] flex flex-col bg-white shadow-lg'
+            className='cart-drawer fixed top-0 right-0 h-full max-[420px]:w-full sm:max-w-[400px] flex flex-col bg-white shadow-lg'
             ref={ref}
           >
             {/* Header Section */}

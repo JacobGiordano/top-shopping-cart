@@ -56,8 +56,9 @@ function SiteNav({ navData }) {
   return (
     <>
       <Button
+        variant='outline'
         highContrast
-        className='md:hidden md:invisible hover:cursor-pointer'
+        className='mobile-nav-btn md:hidden md:invisible hover:cursor-pointer'
         onClick={toggleMobileNav}
       >
         &equiv;
