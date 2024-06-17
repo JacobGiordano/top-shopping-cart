@@ -13,6 +13,10 @@ is from here: https://www.frontend.fyi/v/fixing-radix-themes-with-css-cascade-la
   font-style: normal;
 }
 
+.nav-link.active {
+  border-bottom-color: rgb(147 51 234 / 1) !important;
+}
+
 body {
   background-color: rgb(2 6 23 / 1);
   background: rgb(2 6 23 / 1);

@@ -42,8 +42,8 @@ function SiteNav({ navData }) {
             to={navObj.url}
             className={({ isActive }) =>
               isActive
-                ? "text-purple-500 border-b border-b-purple-600 active"
-                : "text-white-900 hover:text-purple-500"
+                ? "nav-link text-purple-500 border-b border-b-purple-600 active"
+                : "nav-link text-white-900 hover:text-purple-500"
             }
           >
             {navObj.category}
