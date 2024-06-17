@@ -33,8 +33,8 @@ body {
       border-color: #2e3441;
     }
   }
-  @media screen and (max-width: 797px) {
-    border: 1px solid #2e3441;
+  @media screen and (max-width: 767px) {
+    /* border: 1px solid #2e3441; */
     & header,
     cart-drawer,
     .site-nav {
@@ -66,13 +66,10 @@ body.light {
     background-color: white;
     color: inherit;
   }
-  @media screen and (max-width: 797px) {
+  @media screen and (max-width: 767px) {
     & .site-nav {
       border: 1px solid rgba(189, 192, 195, 0.85) !important;
       box-shadow: 0 0 1rem 1rem rgba(189, 192, 195, 0.318);
-    }
-    .mobile-nav-btn {
-      color: var(--gray-12);
     }
   }
 }
