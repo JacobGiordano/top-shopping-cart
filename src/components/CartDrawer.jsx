@@ -36,7 +36,6 @@ const CartDrawer = forwardRef(function CartDrawer(
       right: 0,
       x: 0,
       position: "fixed",
-      overflow: "auto",
       zIndex: 100,
     },
     closed: {
@@ -152,18 +151,15 @@ const CartDrawer = forwardRef(function CartDrawer(
             variants={variants}
             transition={{ duration: 0.35, ease: "easeInOut" }}
             id='cart-drawer'
-            className='cart-drawer relative border-l cart-drawer pt-5 p-2 min-h-svh w-full sm:max-w-[400px]'
+            className='cart-drawer fixed top-0 right-0 h-full sm:max-w-[400px] flex flex-col bg-white shadow-lg'
             ref={ref}
           >
-            <Container>
-              <Flex
-                justify='between'
-                align='center'
-              >
+            {/* Header Section */}
+            <div className='cart-drawer-header flex-shrink-0 p-2 border-b'>
+              <Flex justify='between' align='center' direction='row'>
                 <Heading
                   as='h1'
                   size='5'
-                  mb='3'
                   align='left'
                   trim='both'
                   className='uncial-antiqua-regular uppercase'
@@ -179,8 +175,11 @@ const CartDrawer = forwardRef(function CartDrawer(
                   &times;
                 </Button>
               </Flex>
+            </div>
+            {/* Scrollable Line Items Section */}
+            <div className='cart-drawer-line-items flex-grow overflow-auto '>
               {cart.length > 0 ? (
-                <Box className='min-h-[500px]'>
+                <Box>
                   <Table.Root variant='ghost'>
                     <Table.Header>
                       <Table.Row>
@@ -188,53 +187,45 @@ const CartDrawer = forwardRef(function CartDrawer(
                         <Table.ColumnHeaderCell>Total</Table.ColumnHeaderCell>
                       </Table.Row>
                     </Table.Header>
-
-                    <Table.Body>
-                      {lineItems}
-                      <Table.Row>
-                        <Table.Cell justify='end' align='center'>
-                          <Text as='p' size='3' mr='.5'>
-                            Subtotal:
-                          </Text>
-                        </Table.Cell>
-                        <Table.Cell>
-                          <Price>
-                            <Text as='p' size='3' mr='.5'>
-                              {lineItemTotal.toLocaleString()}
-                            </Text>
-                          </Price>
-                        </Table.Cell>
-                      </Table.Row>
-                    </Table.Body>
+                    <Table.Body>{lineItems}</Table.Body>
                   </Table.Root>
-                  <Flex justify='end' mt='4'>
-                    <Link to={"/cart"}>
-                      <Button className='hover:cursor-pointer' highContrast>
-                        View Cart
-                      </Button>
-                    </Link>
-                  </Flex>
                 </Box>
               ) : (
-                <Section className='min-h-80 md:min-h-[500px]'>
-                  <Flex
-                    direction='column'
-                    justify='center'
-                    align='center'
-                    className='min-h-80'
-                    gap='5'
-                  >
-                    <Text as='p' size='6' className='max-w-[350px] text-center'>
-                      Your cart is empty, Dear Traveler. Please consider looking
-                      over some of our humble offerings.
-                    </Text>
-                    <Button highContrast>
-                      <Link to='/collections/all'>View All Products</Link>
-                    </Button>
-                  </Flex>
+                <Section className='flex flex-col items-center justify-center h-full'>
+                  <Text as='p' size='6' className='text-center max-w-[350px]'>
+                    Your cart is empty, Dear Traveler. Please consider looking
+                    over some of our humble offerings.
+                  </Text>
+                  <Button highContrast>
+                    <Link to='/collections/all'>View All Products</Link>
+                  </Button>
                 </Section>
               )}
-            </Container>
+            </div>
+            {/* Footer Section */}
+            <div className='cart-drawer-footer flex-shrink-0 px-4 pt-3 pb-5 border-t'>
+              <Flex justify='end' align='end' direction='column' gap='4'>
+                <Flex justify='end' gap='2' className='w-full'>
+                  <Text as='p' size='3' mr='.5' align='right'>
+                    Subtotal:
+                  </Text>
+                  <Price className='text-right'>
+                    <Text as='p' size='3' mr='.5' className=''>
+                      {lineItemTotal.toLocaleString()}
+                    </Text>
+                  </Price>
+                </Flex>
+
+                <Link to={"/cart"} className='w-full'>
+                  <Button
+                    className='hover:cursor-pointer mb-2 min-w-[100%!important] py-[1.25rem!important]'
+                    highContrast
+                  >
+                    View Cart
+                  </Button>
+                </Link>
+              </Flex>
+            </div>
           </motion.aside>
         )}
       </AnimatePresence>

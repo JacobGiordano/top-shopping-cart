@@ -51,7 +51,7 @@ function Cart() {
                   align={{ initial: "start", md: "center" }}
                   direction={{ initial: "column", md: "row" }}
                 >
-                  <Flex gap='2'>
+                  <Flex gap='2' align='center'>
                     <Price>
                       <Text as='p' size={{ initial: "2", sm: "3" }} mr='.5'>
                         {lineItem.price}

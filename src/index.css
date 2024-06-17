@@ -22,11 +22,13 @@ body {
     background: rgb(2 6 23 / 1);
   }
   & [data-radix-popper-content-wrapper] .rt-PopoverContent,
-  #cart-drawer {
+  #cart-drawer,
+  .cart-drawer-footer {
     background-color: rgb(2 6 23 / 1);
   }
   & header,
-  #cart-drawer {
+  #cart-drawer,
+  .cart-drawer-footer {
     border-color: #2e3441;
     & * {
       border-color: #2e3441;
@@ -50,7 +52,8 @@ body.light {
     background: #fff;
   }
   & header,
-  #cart-drawer {
+  #cart-drawer,
+  .cart-drawer-footer {
     border-color: #bdc0c3;
   }
   @media screen and (max-width: 797px) {
@@ -60,7 +63,8 @@ body.light {
     }
   }
   & [data-radix-popper-content-wrapper] .rt-PopoverContent,
-  #cart-drawer {
+  #cart-drawer,
+  .cart-drawer-footer {
     background-color: white;
     color: inherit;
   }
