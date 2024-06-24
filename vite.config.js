@@ -5,9 +5,9 @@ import svgr from "vite-plugin-svgr";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr()],
-  globals: true,
   test: {
     environment: "jsdom",
+    globals: true,
     setupFiles: "./src/tests/setup.js",
   },
 });
