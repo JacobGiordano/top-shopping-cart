@@ -1,46 +1,26 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
 import Home from "../routes/Home";
-import { BrowserRouter as Router } from "react-router-dom";
-import products from "../data/products.json";
-import bestSellers from "../data/best-sellers.json";
-import testimonials from "../data/testimonials.json";
+import { BrowserRouter } from "react-router-dom";
 
 describe("Home Component", () => {
-  it("renders featured products correctly", () => {
+  // Only checking the hero banner because all child components
+  // have their own tests
+  it("renders the hero banner correctly", () => {
     render(
-      <Router>
+      <BrowserRouter>
         <Home />
-      </Router>
+      </BrowserRouter>
     );
-
-    products.slice(0, 5).forEach((product) => {
-      expect(screen.getByText(product.name)).toBeInTheDocument();
-    });
-  });
-
-  it("displays best sellers section", () => {
-    render(
-      <Router>
-        <Home />
-      </Router>
-    );
-
-    bestSellers.forEach((product) => {
-      expect(screen.getByText(product.name)).toBeInTheDocument();
-    });
-  });
-
-  it("displays testimonials", () => {
-    render(
-      <Router>
-        <Home />
-      </Router>
-    );
-
-    testimonials.forEach((testimonial) => {
-      expect(screen.getByText(testimonial.author)).toBeInTheDocument();
-      expect(screen.getByText(testimonial.content)).toBeInTheDocument();
-    });
+    expect(screen.getByText(/Welcome, Dear Traveler, to/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Gilded Gryphon/i)[1]).toBeInTheDocument();
+    expect(
+      screen.getByText((content, element) => {
+        return (
+          content.includes("What adventures await") &&
+          element.innerHTML.includes('<span class="italic">you</span>')
+        );
+      })
+    ).toBeInTheDocument();
   });
 });

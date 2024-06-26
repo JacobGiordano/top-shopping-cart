@@ -67,6 +67,7 @@ function Root() {
           data,
           drawerIsOpen,
           setDrawerIsOpen,
+          headerRef,
         }}
       />
       <Footer />
