@@ -118,6 +118,7 @@ const CartDrawer = forwardRef(function CartDrawer(
                     highContrast
                     className='remove-btn hover:cursor-pointer'
                     onClick={handleRemoveItem}
+                    data-testid={`remove-button-${lineItem.id}`}
                   >
                     <TrashCan className='p-1' data-product-id={lineItem.id} />
                   </IconButton>
