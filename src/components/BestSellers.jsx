@@ -13,7 +13,7 @@ function BestSellers() {
             <img
               className='rounded-t-md'
               src={product.image}
-              alt={product.name}
+              alt={product.title}
             />
             <Text
               size='4'

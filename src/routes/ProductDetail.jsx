@@ -13,12 +13,14 @@ import {
   Button,
 } from "@radix-ui/themes";
 import { useRef } from "react";
+import PropTypes from "prop-types";
 
-function ProductDetail() {
+function ProductDetail({ product: propProduct }) {
   const { handle } = useParams();
   const context = useOutletContext();
   const data = context.data;
-  const product = data.products.find((product) => product.handle === handle);
+  const product =
+    propProduct || data.products.find((product) => product.handle === handle);
   const cartItem = context.cart.find((lineItem) => lineItem.id === product.id);
   const available = cartItem
     ? product.available - cartItem.quantity
@@ -162,4 +164,9 @@ function ProductDetail() {
     </Container>
   );
 }
+
+ProductDetail.propTypes = {
+  product: PropTypes.object,
+};
+
 export default ProductDetail;

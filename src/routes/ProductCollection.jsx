@@ -18,6 +18,7 @@ import Price from "../components/Price";
 function ProductCollection() {
   const context = useOutletContext();
   const data = context.data;
+  const headerRef = context.headerRef;
   const { tags } = useParams();
   const splitTags = tags.split("+");
   let collectionTitle = "";
@@ -25,9 +26,11 @@ function ProductCollection() {
 
   useEffect(() => {
     setTimeout(() => {
-      document.querySelector("header").scrollIntoView();
+      if (headerRef.current) {
+        headerRef.current.scrollIntoView();
+      }
     }, 0);
-  }, []);
+  }, [headerRef]);
 
   if (tags == "all") {
     matches = data.products;

@@ -52,7 +52,7 @@ const CartDrawer = forwardRef(function CartDrawer(
   };
 
   const handleRemoveItem = (e) => {
-    const lineItemId = e.target.dataset.productId;
+    const lineItemId = e.currentTarget.dataset.productId;
     const updatedCart = cart.filter(
       (cartItem) => parseInt(lineItemId) !== cartItem.id
     );
@@ -116,10 +116,12 @@ const CartDrawer = forwardRef(function CartDrawer(
                   <IconButton
                     variant='solid'
                     highContrast
-                    className='hover:cursor-pointer'
+                    className='remove-btn hover:cursor-pointer'
                     onClick={handleRemoveItem}
+                    data-product-id={lineItem.id}
+                    data-testid={`remove-button-${lineItem.id}`}
                   >
-                    <TrashCan className='p-1' data-product-id={lineItem.id} />
+                    <TrashCan className='p-1' />
                   </IconButton>
                 </Flex>
               </Flex>
