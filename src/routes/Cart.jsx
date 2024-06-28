@@ -160,7 +160,7 @@ function Cart() {
                 <Table.Cell>
                   <Price>
                     <Text as='p' size='3' mr='.5'>
-                      {(lineItemTotal * 0.1).toFixed(2)}
+                      {(lineItemTotal * 0.1).toLocaleString()}
                     </Text>
                   </Price>
                 </Table.Cell>
@@ -174,9 +174,7 @@ function Cart() {
                 <Table.Cell>
                   <Price>
                     <Text as='p' size='3' mr='.5'>
-                      {(lineItemTotal + lineItemTotal * 0.1)
-                        .toFixed(2)
-                        .toLocaleString()}
+                      {(lineItemTotal + lineItemTotal * 0.1).toLocaleString()}
                     </Text>
                   </Price>
                 </Table.Cell>
