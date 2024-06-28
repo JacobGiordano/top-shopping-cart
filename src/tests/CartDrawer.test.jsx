@@ -1,6 +1,11 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  rerender,
+} from "@testing-library/react";
 import { describe, it, beforeEach, expect, vi } from "vitest";
-import userEvent from "@testing-library/user-event";
 import CartDrawer from "../components/CartDrawer";
 import { MemoryRouter } from "react-router-dom";
 import { createContext, useState } from "react";
@@ -62,7 +67,11 @@ describe("CartDrawer Component", () => {
     cartState = [...initialCart];
     setCartMock = vi.fn((newCart) => {
       cartState = newCart;
+      console.log("Updated Cart:", newCart);
     });
+  });
+
+  it("renders cart items correctly", () => {
     render(
       <Wrapper cart={cartState} setCart={setCartMock}>
         <CartDrawer
@@ -73,15 +82,22 @@ describe("CartDrawer Component", () => {
         />
       </Wrapper>
     );
-  });
-
-  it("renders cart items correctly", () => {
     initialCart.forEach((item) => {
       expect(screen.getByText(item.title)).toBeInTheDocument();
     });
   });
 
   it("calculates total price correctly", () => {
+    render(
+      <Wrapper cart={cartState} setCart={setCartMock}>
+        <CartDrawer
+          cart={cartState}
+          setCart={setCartMock}
+          drawerIsOpen={true}
+          setDrawerIsOpen={vi.fn()}
+        />
+      </Wrapper>
+    );
     const totalPrice = initialCart.reduce(
       (sum, item) => sum + item.price * item.quantity,
       0
@@ -90,24 +106,59 @@ describe("CartDrawer Component", () => {
     expect(screen.getByText(totalPrice.toLocaleString())).toBeInTheDocument();
   });
 
-  it("removes item from cart on click", async () => {
+  it("removes an item from the cart when the remove button is clicked", async () => {
+    const { rerender } = render(
+      <Wrapper cart={cartState} setCart={setCartMock}>
+        <CartDrawer
+          cart={cartState}
+          setCart={setCartMock}
+          drawerIsOpen={true}
+          setDrawerIsOpen={vi.fn()}
+        />
+      </Wrapper>
+    );
+
+    // Verify initial state
+    expect(screen.getByText("Potion of Healing")).toBeInTheDocument();
+    expect(screen.getByText("Elixir of Strength")).toBeInTheDocument();
+
     const removeButton = screen.getByTestId("remove-button-345098765432");
+    fireEvent.click(removeButton);
 
-    console.log("Remove Button Found:", removeButton);
+    // Rerender the component after the state change
+    rerender(
+      <Wrapper cart={cartState} setCart={setCartMock}>
+        <CartDrawer
+          cart={cartState}
+          setCart={setCartMock}
+          drawerIsOpen={true}
+          setDrawerIsOpen={vi.fn()}
+        />
+      </Wrapper>
+    );
 
-    await userEvent.click(removeButton);
-
-    // Mock the state change by updating the cart
-    const updatedCart = initialCart.filter((item) => item.id !== 345098765432);
-    setCartMock(updatedCart);
-
+    // Verify state after removal
     await waitFor(() => {
-      console.log("Checking if 'Potion of Healing' is in the document...");
-      expect(screen.queryByText("Potion of Healing")).not.toBeInTheDocument();
+      expect(setCartMock).toHaveBeenCalledTimes(1);
+      expect(setCartMock).toHaveBeenCalledWith([
+        {
+          id: 234567890123,
+          title: "Elixir of Strength",
+          image: "/images/product-images/elixir-of-strength.jpeg",
+          price: 90,
+          quantity: 1,
+          compare_at_price: 100,
+          tags: ["elixirs", "strength", "consumables", "sale"],
+          available: 8,
+          handle: "elixir-of-strength",
+        },
+      ]);
     });
 
-    expect(setCartMock).toHaveBeenCalledWith(
-      initialCart.filter((item) => item.id !== 345098765432)
-    );
+    // Verify final state
+    await waitFor(() => {
+      expect(screen.queryByText("Potion of Healing")).not.toBeInTheDocument();
+      expect(screen.getByText("Elixir of Strength")).toBeInTheDocument();
+    });
   });
 });
