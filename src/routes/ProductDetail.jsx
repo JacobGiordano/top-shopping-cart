@@ -55,7 +55,7 @@ function ProductDetail({ product: propProduct }) {
     });
 
     addToCart
-      ? context.setCart([...updatedCart, lineItem])
+      ? context.setCart([lineItem, ...updatedCart])
       : context.setCart(updatedCart);
 
     if (inputRef.current) {
