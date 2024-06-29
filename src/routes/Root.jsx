@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, ScrollRestoration } from "react-router-dom";
 
 import { useState, useEffect, useRef } from "react";
 import data from "../data/products.json";
@@ -35,6 +35,7 @@ function Root() {
 
   return (
     <div className='relative overflow-clip'>
+      <ScrollRestoration />
       <ScrollLock boolVal={drawerIsOpen} />
       <Header
         cart={cart}
