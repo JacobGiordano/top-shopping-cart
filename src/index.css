@@ -30,6 +30,7 @@ body {
     background: rgb(2 6 23 / 1);
   }
   & header,
+  footer,
   #cart-drawer,
   .cart-drawer-footer {
     border-color: #2e3441;
@@ -40,6 +41,7 @@ body {
   @media screen and (max-width: 767px) {
     /* border: 1px solid #2e3441; */
     & header,
+    footer,
     cart-drawer,
     .site-nav {
       border-color: #2e3441;
