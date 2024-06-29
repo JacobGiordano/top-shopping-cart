@@ -62,12 +62,12 @@ function ProductCollection() {
                   }}
                 />
               </Inset>
-              <Text as='p' size='5'>
+              <Text as='p' className='text-med md:text-lg'>
                 {match.title}
               </Text>
-              <Flex gap='2' align='baseline'>
+              <Flex gap='2' className='items-baseline flex-wrap'>
                 <Price>
-                  <Text as='p' size='3'>
+                  <Text as='p' className='text-med md:text-lg'>
                     {match.price}
                   </Text>
                 </Price>
@@ -76,14 +76,16 @@ function ProductCollection() {
                     <Price>
                       <Text
                         as='p'
-                        size='3'
                         style={{ textDecoration: "line-through" }}
+                        className='text-med md:text-lg'
                       >
                         {match.compare_at_price}
                       </Text>
                     </Price>
-                    <Badge color='crimson'>On Sale!</Badge>
                   </>
+                )}
+                {match.price < match.compare_at_price && (
+                  <Badge color='crimson'>On Sale!</Badge>
                 )}
               </Flex>
             </Card>
@@ -111,15 +113,16 @@ function ProductCollection() {
           {matches.length > 0 ? (
             <Grid
               columns={{
+                initial: "repeat(2, 47%)",
                 xs: "repeat(2, 1fr)",
                 sm: "repeat(3, 1fr)",
               }}
               gap='5'
               rows='auto'
-              width='auto'
               justify={{ xs: "center" }}
               align={{ xs: "center" }}
-              maxWidth={"900px"}
+              maxWidth={{ initial: "100%", sm: "900px" }}
+              className='max-w-full sm:max-w-[900px]'
             >
               {cards}
             </Grid>
