@@ -153,7 +153,7 @@ const CartDrawer = forwardRef(function CartDrawer(
             variants={variants}
             transition={{ duration: 0.35, ease: "easeInOut" }}
             id='cart-drawer'
-            className='cart-drawer fixed top-0 right-0 h-full max-[420px]:w-full sm:max-w-[400px] flex flex-col bg-white shadow-lg'
+            className='cart-drawer fixed top-0 right-0 h-full max-[420px]:w-full sm:max-w-[400px] flex flex-col bg-white shadow-lg border-l-[1px]'
             ref={ref}
           >
             {/* Header Section */}
@@ -193,7 +193,7 @@ const CartDrawer = forwardRef(function CartDrawer(
                   </Table.Root>
                 </Box>
               ) : (
-                <Section className='flex flex-col items-center justify-center h-full'>
+                <Section className='flex flex-col items-center gap-8 justify-center h-full'>
                   <Text as='p' size='6' className='text-center max-w-[350px]'>
                     Your cart is empty, Dear Traveler. Please consider looking
                     over some of our humble offerings.
