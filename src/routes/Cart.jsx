@@ -20,7 +20,7 @@ function Cart() {
   let lineItemTotal = 0;
 
   const handleRemoveItem = (e) => {
-    const lineItemId = e.target.dataset.productId;
+    const lineItemId = e.currentTarget.dataset.productId;
     const updatedCart = context.cart.filter(
       (cartItem) => parseInt(lineItemId) !== cartItem.id
     );
@@ -88,10 +88,12 @@ function Cart() {
                     <IconButton
                       variant='solid'
                       highContrast
-                      className='hover:cursor-pointer'
+                      className='remove-btn hover:cursor-pointer'
                       onClick={handleRemoveItem}
+                      data-product-id={lineItem.id}
+                      data-testid={`remove-button-${lineItem.id}`}
                     >
-                      <TrashCan className='p-1' data-product-id={lineItem.id} />
+                      <TrashCan className='p-1' />
                     </IconButton>
                   </Flex>
                 </Flex>
@@ -160,7 +162,7 @@ function Cart() {
                 <Table.Cell>
                   <Price>
                     <Text as='p' size='3' mr='.5'>
-                      {(lineItemTotal * 0.1).toLocaleString()}
+                      {Math.ceil(lineItemTotal * 0.01).toLocaleString()}
                     </Text>
                   </Price>
                 </Table.Cell>
@@ -174,7 +176,9 @@ function Cart() {
                 <Table.Cell>
                   <Price>
                     <Text as='p' size='3' mr='.5'>
-                      {(lineItemTotal + lineItemTotal * 0.1).toLocaleString()}
+                      {Math.ceil(
+                        lineItemTotal + lineItemTotal * 0.01
+                      ).toLocaleString()}
                     </Text>
                   </Price>
                 </Table.Cell>
