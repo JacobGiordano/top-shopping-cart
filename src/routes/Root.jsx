@@ -1,7 +1,6 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Outlet, useLocation, ScrollRestoration } from "react-router-dom";
-
 import { useState, useEffect, useRef } from "react";
 import data from "../data/products.json";
 import CartDrawer from "../components/CartDrawer";
@@ -11,6 +10,7 @@ function Root() {
   const storedData = JSON.parse(sessionStorage.getItem("cart"));
   const [cart, setCart] = useState(storedData || []);
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
+  const [popoverKey, setPopoverKey] = useState(0); // State for popoverKey
   const headerRef = useRef(null);
   const cartDrawerRef = useRef(null);
   const location = useLocation();
@@ -21,6 +21,7 @@ function Root() {
 
   useEffect(() => {
     setDrawerIsOpen(false);
+    setPopoverKey((prevKey) => prevKey + 1); // Increment popoverKey on route change
   }, [location]);
 
   useEffect(() => {
@@ -43,6 +44,7 @@ function Root() {
         setDrawerIsOpen={setDrawerIsOpen}
         location={location}
         ref={headerRef}
+        popoverKey={popoverKey} // Pass down popoverKey
       />
       {location.pathname !== "/cart" && (
         <CartDrawer
@@ -52,7 +54,7 @@ function Root() {
           setDrawerIsOpen={setDrawerIsOpen}
           location={location}
           ref={cartDrawerRef}
-        ></CartDrawer>
+        />
       )}
       {drawerIsOpen && (
         <div
@@ -60,7 +62,6 @@ function Root() {
           onClick={handleCartDrawerOverlayClick}
         ></div>
       )}
-      {/* Passing context using object structuring */}
       <Outlet
         context={{
           cart,
@@ -75,4 +76,5 @@ function Root() {
     </div>
   );
 }
+
 export default Root;

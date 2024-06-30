@@ -1,17 +1,38 @@
 import { Flex, Popover, Text, Button } from "@radix-ui/themes";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
 
-function SiteNav({ navData }) {
+function SiteNav({ navData, popoverKey }) {
+  // Add popoverKey prop
+  const [openPopovers, setOpenPopovers] = useState({});
+
+  useEffect(() => {
+    // Close all popovers when popoverKey changes
+    setOpenPopovers({});
+  }, [popoverKey]);
+
   const toggleMobileNav = () => {
     document.querySelector(".site-nav-wrapper").classList.toggle("open");
+  };
+
+  const handlePopoverChange = (category, isOpen) => {
+    setOpenPopovers((prevState) => ({
+      ...prevState,
+      [category]: isOpen,
+    }));
   };
 
   const nav = navData.navigation.map((navObj) => {
     return (
       <li key={navObj.category}>
         {navObj.subcategories ? (
-          <Popover.Root>
+          <Popover.Root
+            open={openPopovers[navObj.category] || false}
+            onOpenChange={(isOpen) =>
+              handlePopoverChange(navObj.category, isOpen)
+            }
+          >
             <Popover.Trigger>
               <Text className='hover:cursor-pointer hover:text-purple-500'>
                 {navObj.category}
@@ -65,7 +86,7 @@ function SiteNav({ navData }) {
         &equiv;
       </Button>
       <div className='site-nav-wrapper absolute z-10 bg-inherit -translate-x-8 md:relative md:translate-x-0 group'>
-        <nav className='site-nav absolute -translate-x-full group-[.open]:translate-x-8 group-[.open]:translate-y-8 group-[.open]:p-4 rounded-lg  md:relative md:group-[.open]:translate-x-0 md:translate-x-0 md:group-[.open]:translate-y-0 md:translate-y-0 md:group-[.open]:p-0 md:p-0 md:group-[.open]:bg-transparent md:bg-transparent'>
+        <nav className='site-nav absolute -translate-x-full group-[.open]:translate-x-8 group-[.open]:translate-y-8 group-[.open]:p-4 rounded-lg  md:relative md:group-[.open]:translate-x-0 md:translate-x-0 md:group-[.open]:translate-y-0 md:group-[.open]:p-0 md:p-0 md:group-[.open]:bg-transparent md:bg-transparent'>
           <ul className='flex gap-4 flex-col md:flex-row'>{nav}</ul>
         </nav>
       </div>
@@ -75,6 +96,7 @@ function SiteNav({ navData }) {
 
 SiteNav.propTypes = {
   navData: PropTypes.object,
+  popoverKey: PropTypes.number.isRequired, // Add prop type
 };
 
 export default SiteNav;
