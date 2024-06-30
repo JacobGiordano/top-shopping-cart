@@ -113,7 +113,7 @@ function ProductCollection() {
           {matches.length > 0 ? (
             <Grid
               columns={{
-                initial: "repeat(2, 47%)",
+                initial: "repeat(2, 46.5%)",
                 xs: "repeat(2, 1fr)",
                 sm: "repeat(3, 1fr)",
               }}
