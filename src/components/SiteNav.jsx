@@ -1,5 +1,6 @@
-import { Flex, Box, Popover, Text, Button } from "@radix-ui/themes";
+import { Flex, Popover, Text, Button } from "@radix-ui/themes";
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function SiteNav({ navData }) {
   const toggleMobileNav = () => {
@@ -71,4 +72,12 @@ function SiteNav({ navData }) {
     </>
   );
 }
+
+SiteNav.propTypes = {
+  cart: PropTypes.array,
+  drawerIsOpen: PropTypes.bool,
+  setDrawerIsOpen: PropTypes.func,
+  navData: PropTypes.object,
+};
+
 export default SiteNav;
