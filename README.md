@@ -13,4 +13,10 @@ The store logo, product images, hero images, and product information were create
 
 ![homepage screenshot](public/images/readme-images/homepage-screenshot.png)
 
+Planned features:
+
+- Collection page product sort
+- Collection page product filtering
+- Search
+
 Visit the live store [here](https://top-shopping-cart-jacobgiordanos-projects.vercel.app/).
