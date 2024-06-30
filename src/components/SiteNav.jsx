@@ -74,9 +74,6 @@ function SiteNav({ navData }) {
 }
 
 SiteNav.propTypes = {
-  cart: PropTypes.array,
-  drawerIsOpen: PropTypes.bool,
-  setDrawerIsOpen: PropTypes.func,
   navData: PropTypes.object,
 };
 
