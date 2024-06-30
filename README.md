@@ -1,8 +1,16 @@
-# React + Vite
+# Shopping Cart Project: Gilded Gryphon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## A mock ecommerce store for all of your adventuring needs
 
-Currently, two official plugins are available:
+Technologies used:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. [Vite + React](https://vitejs.dev/guide/)
+2. [React Router](https://reactrouter.com/en/main)
+3. [Swiper](https://swiperjs.com/)
+4. [Vercel](https://vercel.com/)
+
+The store logo, product images, hero images, and product information were created explicitly for this project using ChatGPT 4o.
+
+![homepage screenshot](public/images/readme-images/homepage-screenshot.png)
+
+Visit the live store [here](https://top-shopping-cart-jacobgiordanos-projects.vercel.app/).
