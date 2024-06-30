@@ -11,7 +11,7 @@ import { useState, forwardRef } from "react";
 import PropTypes from "prop-types";
 
 const Header = forwardRef(function Header(
-  { cart, drawerIsOpen, setDrawerIsOpen, location },
+  { cart, drawerIsOpen, setDrawerIsOpen, location, popoverKey },
   ref
 ) {
   const handleThemeToggleClick = () => {
@@ -75,7 +75,7 @@ const Header = forwardRef(function Header(
         </Flex>
       </Flex>
       <Flex gap='2' justify='between' align='center'>
-        <SiteNav navData={navData} />
+        <SiteNav navData={navData} popoverKey={popoverKey} />
         <Flex gap='2' justify='between' align='center'>
           <Sun className='w-4' />
           <Switch
@@ -96,6 +96,7 @@ Header.propTypes = {
   drawerIsOpen: PropTypes.bool,
   setDrawerIsOpen: PropTypes.func,
   location: PropTypes.object,
+  popoverKey: PropTypes.number,
 };
 
 export default Header;
