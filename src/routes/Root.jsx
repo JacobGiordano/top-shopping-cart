@@ -10,7 +10,7 @@ function Root() {
   const storedData = JSON.parse(sessionStorage.getItem("cart"));
   const [cart, setCart] = useState(storedData || []);
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
-  const [popoverKey, setPopoverKey] = useState(0); // State for popoverKey
+  const [popoverKey, setPopoverKey] = useState(0);
   const headerRef = useRef(null);
   const cartDrawerRef = useRef(null);
   const location = useLocation();
@@ -21,7 +21,7 @@ function Root() {
 
   useEffect(() => {
     setDrawerIsOpen(false);
-    setPopoverKey((prevKey) => prevKey + 1); // Increment popoverKey on route change
+    setPopoverKey((prevKey) => prevKey + 1);
   }, [location]);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ function Root() {
         setDrawerIsOpen={setDrawerIsOpen}
         location={location}
         ref={headerRef}
-        popoverKey={popoverKey} // Pass down popoverKey
+        popoverKey={popoverKey}
       />
       {location.pathname !== "/cart" && (
         <CartDrawer

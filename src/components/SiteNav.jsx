@@ -8,7 +8,6 @@ function SiteNav({ navData, popoverKey }) {
   const [openPopovers, setOpenPopovers] = useState({});
 
   useEffect(() => {
-    // Close all popovers when popoverKey changes
     setOpenPopovers({});
   }, [popoverKey]);
 
@@ -96,7 +95,7 @@ function SiteNav({ navData, popoverKey }) {
 
 SiteNav.propTypes = {
   navData: PropTypes.object,
-  popoverKey: PropTypes.number.isRequired, // Add prop type
+  popoverKey: PropTypes.number.isRequired,
 };
 
 export default SiteNav;
