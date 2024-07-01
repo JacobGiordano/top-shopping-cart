@@ -6,7 +6,7 @@ import Guarantee from "../components/Guarantee";
 
 function Home() {
   return (
-    <Flex className='max-w-[1080px] m-auto p-0 pb-12 flex-col'>
+    <Flex className='max-w-[1080px] m-auto p-0 pb-16 flex-col'>
       <Flex className='relative' justify='center' align='center'>
         <img
           src='/images/store-images/homepage-banner.jpg'

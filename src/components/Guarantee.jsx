@@ -44,7 +44,7 @@ function Guarantee() {
       </Flex>
       <Box className='absolute left-0 top-0 z-0 bg-slate-950/50 w-full h-full'></Box>
       <img
-        className='h-full sm:h-[unset] min-w-fit sm:min-w-[unset]'
+        className='h-full sm:h-[unset] w-fit min-w-fit sm:min-w-[unset]'
         src='/images/store-images/epic-battle.jpg'
       ></img>
     </Flex>
