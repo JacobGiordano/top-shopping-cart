@@ -35,7 +35,7 @@ function Root() {
   };
 
   return (
-    <div className='relative overflow-clip'>
+    <div id='root-comp' className='relative overflow-clip'>
       <ScrollRestoration />
       <ScrollLock boolVal={drawerIsOpen} />
       <Header

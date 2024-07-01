@@ -7,6 +7,14 @@ is from here: https://www.frontend.fyi/v/fixing-radix-themes-with-css-cascade-la
 @import "swiper/css/pagination";
 @import "swiper/css/navigation";
 
+html,
+body,
+#root,
+#root-comp,
+#theme-inner-wrapper {
+  min-height: 100vh;
+}
+
 .uncial-antiqua-regular {
   font-family: "Uncial Antiqua", system-ui;
   font-weight: 400;
@@ -20,7 +28,7 @@ is from here: https://www.frontend.fyi/v/fixing-radix-themes-with-css-cascade-la
 body {
   background-color: rgb(2 6 23 / 1);
   background: rgb(2 6 23 / 1);
-  & .theme-inner-wrapper,
+  & #theme-inner-wrapper,
   header,
   header *,
   & [data-radix-popper-content-wrapper] .rt-PopoverContent,
@@ -55,7 +63,7 @@ body {
 body.light {
   background-color: #fff;
   background: #fff;
-  & .theme-inner-wrapper,
+  & #theme-inner-wrapper,
   header,
   header * {
     background-color: #fff;

@@ -4,7 +4,7 @@ import { Text, Flex } from "@radix-ui/themes";
 
 function Footer() {
   return (
-    <footer className='bottom-0 border-t w-full py-2 box-border'>
+    <footer className='absolute left-0 right-0 bottom-0 border-t w-full py-2 box-border z-20'>
       <Flex
         wrap='wrap'
         direction={{ initial: "column", xs: "row" }}
