@@ -2,14 +2,15 @@ import { Flex, Popover, Text, Button } from "@radix-ui/themes";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
+import useRouteChange from "../hooks/useRouteChange"; // Import the custom hook
 
-function SiteNav({ navData, popoverKey }) {
-  // Add popoverKey prop
+function SiteNav({ navData }) {
   const [openPopovers, setOpenPopovers] = useState({});
 
-  useEffect(() => {
+  useRouteChange(() => {
+    // Close all popovers when the route changes
     setOpenPopovers({});
-  }, [popoverKey]);
+  });
 
   const toggleMobileNav = () => {
     document.querySelector(".site-nav-wrapper").classList.toggle("open");
@@ -22,57 +23,53 @@ function SiteNav({ navData, popoverKey }) {
     }));
   };
 
-  const nav = navData.navigation.map((navObj) => {
-    return (
-      <li key={navObj.category}>
-        {navObj.subcategories ? (
-          <Popover.Root
-            open={openPopovers[navObj.category] || false}
-            onOpenChange={(isOpen) =>
-              handlePopoverChange(navObj.category, isOpen)
-            }
-          >
-            <Popover.Trigger>
-              <Text className='hover:cursor-pointer hover:text-purple-500'>
-                {navObj.category}
-              </Text>
-            </Popover.Trigger>
-            <Popover.Content width='360px'>
-              <Flex gap='3' direction='column'>
-                {navObj.subcategories.map((subcategory) => {
-                  return (
-                    <NavLink
-                      key={subcategory.name}
-                      to={subcategory.url}
-                      className={({ isActive }) =>
-                        isActive
-                          ? "text-purple-500 border-b border-b-purple-600 active"
-                          : "text-white-900 hover:text-purple-500"
-                      }
-                    >
-                      {subcategory.name}
-                    </NavLink>
-                  );
-                })}
-              </Flex>
-            </Popover.Content>
-          </Popover.Root>
-        ) : (
-          <NavLink
-            key={navObj.category}
-            to={navObj.url}
-            className={({ isActive }) =>
-              isActive
-                ? "nav-link text-purple-500 border-b border-b-purple-600 active"
-                : "nav-link text-white-900 hover:text-purple-500"
-            }
-          >
-            {navObj.category}
-          </NavLink>
-        )}
-      </li>
-    );
-  });
+  const nav = navData.navigation.map((navObj) => (
+    <li key={navObj.category}>
+      {navObj.subcategories ? (
+        <Popover.Root
+          open={openPopovers[navObj.category] || false}
+          onOpenChange={(isOpen) =>
+            handlePopoverChange(navObj.category, isOpen)
+          }
+        >
+          <Popover.Trigger>
+            <Text className='hover:cursor-pointer hover:text-purple-500'>
+              {navObj.category}
+            </Text>
+          </Popover.Trigger>
+          <Popover.Content width='360px'>
+            <Flex gap='3' direction='column'>
+              {navObj.subcategories.map((subcategory) => (
+                <NavLink
+                  key={subcategory.name}
+                  to={subcategory.url}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-purple-500 border-b border-b-purple-600 active"
+                      : "text-white-900 hover:text-purple-500"
+                  }
+                >
+                  {subcategory.name}
+                </NavLink>
+              ))}
+            </Flex>
+          </Popover.Content>
+        </Popover.Root>
+      ) : (
+        <NavLink
+          key={navObj.category}
+          to={navObj.url}
+          className={({ isActive }) =>
+            isActive
+              ? "nav-link text-purple-500 border-b border-b-purple-600 active"
+              : "nav-link text-white-900 hover:text-purple-500"
+          }
+        >
+          {navObj.category}
+        </NavLink>
+      )}
+    </li>
+  ));
 
   return (
     <>
@@ -94,8 +91,7 @@ function SiteNav({ navData, popoverKey }) {
 }
 
 SiteNav.propTypes = {
-  navData: PropTypes.object,
-  popoverKey: PropTypes.number.isRequired,
+  navData: PropTypes.object.isRequired,
 };
 
 export default SiteNav;
