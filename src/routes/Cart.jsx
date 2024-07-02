@@ -116,7 +116,7 @@ function Cart() {
   });
 
   return (
-    <Container className='pt-5 md:pt-8 pb-20 max-w-[900px] m-auto'>
+    <Container className='pt-5 md:pt-8 pb-24 max-w-[900px] m-auto'>
       <Heading
         as='h1'
         size='7'

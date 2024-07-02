@@ -84,7 +84,7 @@ function ProductDetail({ product: propProduct }) {
   ));
 
   return (
-    <Container className='max-w-[900px] m-auto =pt-5 md:pt-8 pb-20'>
+    <Container className='max-w-[900px] m-auto =pt-5 md:pt-8 pb-24'>
       <Flex gap='6' direction={{ initial: "column", sm: "row" }}>
         <Box className='left-column'>
           <MediaGallery product={product} />
