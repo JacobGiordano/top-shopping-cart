@@ -6,7 +6,7 @@ function useRouteChange(callback) {
 
   useEffect(() => {
     callback();
-  }, [location.pathname]); // Only trigger on pathname change
+  }, [location.pathname, callback]); // Include callback in dependency array
 }
 
 export default useRouteChange;
