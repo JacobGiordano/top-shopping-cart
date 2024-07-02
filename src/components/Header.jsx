@@ -96,7 +96,7 @@ Header.propTypes = {
   drawerIsOpen: PropTypes.bool,
   setDrawerIsOpen: PropTypes.func,
   location: PropTypes.object,
-  popoverKey: PropTypes.number,
+  popoverKey: PropTypes.number.isRequired,
 };
 
 export default Header;
