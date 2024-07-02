@@ -26,10 +26,6 @@ function SiteNav({ navData }) {
     }));
   };
 
-  useEffect(() => {
-    console.log("Open Popovers State:", JSON.stringify(openPopovers));
-  }, [openPopovers]);
-
   const renderSubcategories = (subcategories) => (
     <Flex gap='3' direction='column'>
       {subcategories.map((subcategory) => (
