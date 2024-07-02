@@ -63,6 +63,7 @@ function Root() {
         ></div>
       )}
       <Outlet
+        className='pb-24'
         context={{
           cart,
           setCart,

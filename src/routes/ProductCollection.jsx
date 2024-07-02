@@ -96,7 +96,7 @@ function ProductCollection() {
   });
 
   return (
-    <Box className='pt-5 md:pt-8 pb-20'>
+    <Box className='pt-5 md:pt-8 pb-24'>
       <Container className='max-w-[900px] m-auto'>
         <Heading
           as='h1'
