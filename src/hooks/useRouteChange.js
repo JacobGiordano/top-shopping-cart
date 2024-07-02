@@ -6,7 +6,7 @@ function useRouteChange(callback) {
 
   useEffect(() => {
     callback();
-  }, [location.pathname, callback]); // Include callback in dependency array
+  }, [location.pathname, callback]);
 }
 
 export default useRouteChange;

@@ -2,26 +2,24 @@ import { Flex, Popover, Text, Button } from "@radix-ui/themes";
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types";
 import { useState, useEffect, useCallback } from "react";
-import useRouteChange from "../hooks/useRouteChange"; // Import the custom hook
+import useRouteChange from "../hooks/useRouteChange";
 
 function SiteNav({ navData }) {
   const [openPopovers, setOpenPopovers] = useState({});
-  const [isNavOpen, setIsNavOpen] = useState(false); // State to track .site-nav visibility
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const closeAllPopoversAndNav = useCallback(() => {
-    console.log("Route changed, closing all popovers and nav");
     setOpenPopovers({});
-    setIsNavOpen(false); // Close the .site-nav element
+    setIsNavOpen(false);
   }, []);
 
   useRouteChange(closeAllPopoversAndNav);
 
   const toggleMobileNav = () => {
-    setIsNavOpen((prev) => !prev); // Toggle .site-nav visibility
+    setIsNavOpen((prev) => !prev);
   };
 
   const handlePopoverChange = (category, isOpen) => {
-    console.log(`Popover ${category} is now ${isOpen ? "open" : "closed"}`);
     setOpenPopovers((prevState) => ({
       ...prevState,
       [category]: isOpen,
