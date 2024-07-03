@@ -26,9 +26,9 @@ function Home() {
         </div>
       </Flex>
       <BestSellers />
-      <Categories />
       <Guarantee />
       <Testimonials />
+      <Categories />
     </Flex>
   );
 }
