@@ -3,7 +3,7 @@ import { Box, Flex, Heading, Text } from "@radix-ui/themes";
 function Guarantee() {
   return (
     <Flex
-      className='relative mt-12 text-center md:text-right h-96 sm:h-auto overflow-hidden'
+      className='relative mt-12 text-center md:text-right h-96 sm:h-[100vh] sm:max-h-[600px] overflow-hidden'
       justify={{ initial: "center", sm: "end" }}
       align='center'
     >
@@ -43,10 +43,11 @@ function Guarantee() {
         </Text>
       </Flex>
       <Box className='absolute left-0 top-0 z-0 bg-slate-950/50 w-full h-full'></Box>
-      <img
+      {/* <img
         className='h-full sm:h-[unset] w-fit min-w-fit sm:min-w-[unset]'
         src='/images/store-images/epic-battle.jpg'
-      ></img>
+      ></img> */}
+      <div className="bg-[url('/images/store-images/epic-battle.jpg')] h-full w-full bg-cover bg-center"></div>
     </Flex>
   );
 }
