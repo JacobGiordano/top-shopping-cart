@@ -6,9 +6,10 @@ Technologies used:
 
 1. [Vite + React](https://vitejs.dev/guide/)
 2. [Radix Themes](https://www.radix-ui.com/)
-3. [React Router](https://reactrouter.com/en/main)
-4. [Swiper](https://swiperjs.com/)
-5. [Vercel](https://vercel.com/)
+3. [Tailwind CSS](https://tailwindcss.com/)
+4. [React Router](https://reactrouter.com/en/main)
+5. [Swiper](https://swiperjs.com/)
+6. [Vercel](https://vercel.com/)
 
 The store logo, product images, hero images, and product information were created explicitly for this project using ChatGPT 4o.
 
