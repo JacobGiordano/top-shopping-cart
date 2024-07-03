@@ -13,7 +13,6 @@ import {
 } from "@radix-ui/themes";
 import QuantityInput from "../components/QuantityInput";
 import Price from "../components/Price";
-import TrashCan from "/src/assets/svg/trash-can.svg?react";
 import { motion, AnimatePresence } from "framer-motion";
 import PropTypes from "prop-types";
 
@@ -121,7 +120,7 @@ const CartDrawer = forwardRef(function CartDrawer(
                     data-product-id={lineItem.id}
                     data-testid={`remove-button-${lineItem.id}`}
                   >
-                    <TrashCan className='p-1' />
+                    &times;
                   </IconButton>
                 </Flex>
               </Flex>
