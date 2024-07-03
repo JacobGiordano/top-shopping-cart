@@ -13,7 +13,6 @@ import {
 } from "@radix-ui/themes";
 import QuantityInput from "../components/QuantityInput";
 import Price from "../components/Price";
-import TrashCan from "/src/assets/svg/trash-can.svg?react";
 
 function Cart() {
   const context = useOutletContext();
@@ -93,7 +92,7 @@ function Cart() {
                       data-product-id={lineItem.id}
                       data-testid={`remove-button-${lineItem.id}`}
                     >
-                      <TrashCan className='p-1' />
+                      &times;
                     </IconButton>
                   </Flex>
                 </Flex>
